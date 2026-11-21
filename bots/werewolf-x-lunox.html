@@ -219,7 +219,8 @@
         "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
       })[char]);
 
-      const renderRoleEmoji = (value) => {
+      const renderRoleEmoji = (value, imageUrl) => {
+        if (imageUrl) return `<img class="role-emoji" src="${escapeHTML(imageUrl)}" alt="" loading="lazy">`;
         const raw = String(value || "🃏");
         const custom = raw.match(/^<a?:([a-zA-Z0-9_]+):(\d+)>$/);
         if (!custom) return escapeHTML(raw);
@@ -253,7 +254,7 @@
               const image = artUrl
                 ? '<img src="' + escapeHTML(artUrl) + '" data-fallback="' + escapeHTML(role.imageFallbackUrl || "") + '" alt="Ilustrasi role ' + escapeHTML(role.name) + '" loading="lazy">'
                 : "";
-              const emoji = renderRoleEmoji(role.emoji);
+              const emoji = renderRoleEmoji(role.emoji, role.emojiUrl);
               const emojiLabel = role.emojiUrl
                 ? '<img class="role-inline-emoji" src="' + escapeHTML(role.emojiUrl) + '" alt="">'
                 : emoji;
