@@ -59,6 +59,33 @@
     .command-note{margin-top:20px;color:#999;font-size:11px}
     @media(max-width:650px){.commands-heading{display:block}.commands-lead{margin-top:12px}.command-list{grid-template-columns:1fr}.commands-section{margin-top:75px}}
 
+
+    /* Desktop layout refinement */
+    @media(min-width:900px){
+      .container{width:min(1080px,86%)}
+      main{padding-top:88px}
+      .profile{margin:28px 0 30px}
+      .intro{margin-top:34px;max-width:760px}
+      .detail{grid-template-columns:200px minmax(0,1fr);gap:42px;margin-top:70px}
+      .commands-section{margin-top:88px;padding-top:42px}
+      .commands-heading{align-items:flex-end;gap:56px;margin-bottom:30px}
+      .commands-title{font-size:48px}
+      .commands-lead{max-width:420px;font-size:14px;line-height:1.75}
+      .command-tools{margin-top:30px}
+      .command-search{max-width:520px}
+      .command-list{grid-template-columns:repeat(2,minmax(0,1fr));align-items:start;gap:14px}
+      .command-card{align-self:start;padding:22px 23px}
+      .command-card-top{align-items:center}
+      .command-card h3{font-size:18px}
+      .command-description{font-size:13px;line-height:1.65}
+      .command-sub{padding:11px 12px}
+      .command-note{max-width:760px;line-height:1.7}
+    }
+    @media(min-width:1200px){
+      .command-list{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:18px}
+      .command-card{padding:24px}
+    }
+
     footer{padding:30px 0;border-top:1px solid var(--line);color:#999;font-size:12px}
     @media(max-width:600px){nav{height:70px}.profile{gap:18px}.avatar{width:78px;height:78px;border-radius:17px}h1{letter-spacing:-2.5px}.detail{grid-template-columns:1fr;gap:12px}main{padding:75px 0 90px}}
     @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
