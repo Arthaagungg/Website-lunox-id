@@ -92,6 +92,43 @@
       .command-card{padding:24px}
     }
 
+    /* Command directory: compact list with expandable details */
+    .command-list{display:flex;flex-direction:column;gap:0;max-width:900px;border-top:1px solid var(--line)}
+    .command-card{display:block;border:0;border-bottom:1px solid var(--line);border-radius:0;padding:0;background:transparent;min-width:0}
+    .command-summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:17px 4px;cursor:pointer}
+    .command-summary::-webkit-details-marker{display:none}
+    .command-summary-main{display:flex;align-items:baseline;gap:14px;min-width:0;flex:1}
+    .command-name{font:700 15px/1.4 Consolas,monospace;white-space:nowrap}
+    .command-short-description{font-size:12px;color:var(--gray);min-width:0}
+    .command-summary-side{display:flex;align-items:center;gap:13px;flex-shrink:0}
+    .command-access{font-size:9px;color:var(--gray);border:1px solid var(--line);border-radius:3px;padding:4px 7px;white-space:nowrap}
+    .command-chevron{font-size:20px;line-height:1;color:#999;transition:transform .18s ease}
+    .command-card[open] .command-chevron{transform:rotate(180deg)}
+    .command-card[open] .command-summary{padding-bottom:12px}
+    .command-panel{padding:0 4px 20px 4px;display:grid;gap:14px}
+    .command-detail-row{display:grid;grid-template-columns:105px minmax(0,1fr);align-items:start;gap:12px}
+    .command-label{font-size:9px;letter-spacing:1.4px;color:#999;font-weight:700;margin:3px 0 0}
+    .command-card code{display:inline-block;max-width:100%;overflow-wrap:anywhere;background:var(--light);padding:5px 8px;border-radius:3px;font:11px/1.6 Consolas,monospace}
+    .command-aliases{display:flex;gap:6px;flex-wrap:wrap}
+    .command-sub-wrap{display:block}
+    .command-subcommands{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:8px}
+    .command-sub{padding:11px 12px;background:#fafaf9;border:1px solid #f0f0ee;border-radius:3px;min-width:0}
+    .command-sub strong{font:700 11px/1.5 Consolas,monospace}
+    .command-sub p{font-size:11px;color:var(--gray);margin:4px 0 7px}
+    .command-empty{padding:25px;text-align:center;border:1px dashed var(--line);border-radius:4px;color:var(--gray);font-size:13px}
+    @media(max-width:650px){
+      .command-summary{align-items:flex-start;padding:15px 2px;gap:10px}
+      .command-summary-main{display:block}
+      .command-name{display:block;margin-bottom:3px}
+      .command-short-description{display:block;line-height:1.5}
+      .command-summary-side{gap:7px}
+      .command-access{font-size:8px;padding:3px 5px}
+      .command-panel{padding:0 2px 17px}
+      .command-detail-row{grid-template-columns:1fr;gap:6px}
+      .command-subcommands{grid-template-columns:1fr}
+    }
+    @media(prefers-reduced-motion:reduce){.command-chevron{transition:none}}
+
     footer{padding:30px 0;border-top:1px solid var(--line);color:#999;font-size:12px}
     @media(max-width:600px){nav{height:70px}.profile{gap:18px}.avatar{width:78px;height:78px;border-radius:17px}h1{letter-spacing:-2.5px}.detail{grid-template-columns:1fr;gap:12px}main{padding:75px 0 90px}}
     @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
@@ -150,9 +187,9 @@
       const esc=value=>String(value??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
       function render(){
         const q=search.value.trim().toLowerCase();
-        const rows=commands.filter(c=>(active==="all"||c.category===active)&&[c.name,c.description,...(c.aliases||[])].join(" ").toLowerCase().includes(q));
+        const rows=commands.filter(c=>(active==="all"||c.category===active)&&[c.name,c.description,...(c.aliases||[]),...(c.subcommands||[]).map(s=>s.name+" "+(s.description||""))].join(" ").toLowerCase().includes(q));
         status.textContent=rows.length+" command ditampilkan";
-        list.innerHTML=rows.length?rows.map(c=>'<article class="command-card'+(c.subcommands?.length>3?' command-card--wide':'')+'"><div class="command-card-top"><h3>'+esc(c.name)+'</h3><span class="command-access">'+esc(c.access)+'</span></div><p class="command-description">'+esc(c.description)+'</p><div class="command-label">CARA PAKAI</div><code>!!'+esc(c.usage||c.name)+'</code>'+(c.aliases?.length?'<div class="command-label">ALIAS</div><div class="command-aliases">'+c.aliases.map(x=>'<code>!!'+esc(x)+'</code>').join("")+'</div>':'')+(c.subcommands?.length?'<div class="command-label">SUBCOMMAND</div><div class="command-subcommands">'+c.subcommands.map(s=>'<div class="command-sub"><strong>'+esc(s.name)+'</strong><p>'+esc(s.description||"")+'</p><code>!!'+esc(c.name)+' '+esc(s.name)+(s.usage?.trim()?" "+esc(s.usage.trim()):"")+'</code></div>').join("")+'</div>':'')+'</article>').join(""):'<div class="command-empty">Command tidak ditemukan. Coba kata kunci lain.</div>';
+        list.innerHTML=rows.length?rows.map(c=>'<details class="command-card"><summary class="command-summary"><span class="command-summary-main"><strong class="command-name">'+esc(c.name)+'</strong><span class="command-short-description">'+esc(c.description)+'</span></span><span class="command-summary-side"><span class="command-access">'+esc(c.access)+'</span><span class="command-chevron" aria-hidden="true">⌄</span></span></summary><div class="command-panel"><div class="command-detail-row"><span class="command-label">CARA PAKAI</span><code>!!'+esc(c.usage||c.name)+'</code></div>'+(c.aliases?.length?'<div class="command-detail-row"><span class="command-label">ALIAS</span><div class="command-aliases">'+c.aliases.map(x=>'<code>!!'+esc(x)+'</code>').join("")+'</div></div>':'')+(c.subcommands?.length?'<div class="command-detail-row command-sub-wrap"><span class="command-label">SUBCOMMAND</span><div class="command-subcommands">'+c.subcommands.map(s=>'<div class="command-sub"><strong>'+esc(s.name)+'</strong>'+(s.description?'<p>'+esc(s.description)+'</p>':'')+'<code>!!'+esc(c.name)+' '+esc(s.name)+(s.usage?.trim()?" "+esc(s.usage.trim()):"")+'</code></div>').join("")+'</div></div>':'')+'</div></details>').join(""):'<div class="command-empty">Command tidak ditemukan. Coba kata kunci lain.</div>';
       }
       search.addEventListener("input",render);
       document.querySelectorAll(".command-filter").forEach(button=>button.addEventListener("click",()=>{
