@@ -139,7 +139,7 @@
     .role-art.is-empty img{display:none}
     .role-art.is-empty .role-art-fallback{display:flex}
     .role-copy{padding:17px}
-    .role-name{font-size:16px;line-height:1.3;letter-spacing:-.35px;margin-bottom:5px}
+    .role-name{display:flex;align-items:center;gap:7px;font-size:16px;line-height:1.3;letter-spacing:-.35px;margin-bottom:5px}.role-inline-emoji{width:20px;height:20px;object-fit:contain;flex:0 0 auto}
     .role-category-label{font-size:10px;letter-spacing:1px;text-transform:uppercase;color:#999;font-weight:700}
     .role-description{font-size:12px;color:var(--gray);line-height:1.75;margin-top:12px;overflow-wrap:anywhere}
     .role-error{color:#8b4a3c;background:#fff8f6;border-color:#f0ddd7}
@@ -238,16 +238,20 @@
 
           groups.innerHTML = Array.from(categories.entries()).map(([category, items]) => {
             const cards = items.map((role) => {
-              const image = role.imageUrl
-                ? '<img src="' + escapeHTML(role.imageUrl) + '" alt="Ilustrasi role ' + escapeHTML(role.name) + '" loading="lazy">'
+              const artUrl = role.imageUrl || role.emojiUrl || "";
+              const image = artUrl
+                ? '<img src="' + escapeHTML(artUrl) + '" alt="Ilustrasi role ' + escapeHTML(role.name) + '" loading="lazy">'
                 : "";
               const emoji = escapeHTML(role.emoji || "🃏");
+              const emojiLabel = role.emojiUrl
+                ? '<img class="role-inline-emoji" src="' + escapeHTML(role.emojiUrl) + '" alt="">'
+                : emoji;
               return '<article class="role-card">' +
                 '<div class="role-art' + (image ? "" : " is-empty") + '">' +
                   image + '<div class="role-art-fallback" aria-hidden="true">' + emoji + '</div>' +
                 '</div>' +
                 '<div class="role-copy">' +
-                  '<h4 class="role-name">' + emoji + ' ' + escapeHTML(role.name) + '</h4>' +
+                  '<h4 class="role-name">' + emojiLabel + ' ' + escapeHTML(role.name) + '</h4>' +
                   '<div class="role-category-label">' + escapeHTML(category) + '</div>' +
                   '<p class="role-description">' + escapeHTML(role.description || "Belum ada deskripsi.") + '</p>' +
                 '</div></article>';
