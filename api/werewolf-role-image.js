@@ -78,13 +78,18 @@ module.exports = async function handler(req, res) {
       if (response.status === 404) continue;
       if (!response.ok) throw new Error("GitHub image fetch failed: " + response.status);
 
-      const contentType = response.headers.get("content-type") || "application/octet-stream";
-      if (!/^image\/(png|jpeg|webp|gif)$/i.test(contentType)) {
-        throw new Error("Unsupported role image content type");
+      const responseType = (response.headers.get("content-type") || "").split(";")[0].trim().toLowerCase();
+      const extensionType = /\.png$/i.test(filename) ? "image/png"
+        : /\.jpe?g$/i.test(filename) ? "image/jpeg"
+        : /\.webp$/i.test(filename) ? "image/webp"
+        : /\.gif$/i.test(filename) ? "image/gif" : null;
+      if (!extensionType || (responseType && !/^image\/(png|jpeg|webp|gif)$/i.test(responseType) && responseType !== "application/octet-stream")) {
+        throw new Error("Unsupported role image content type: " + responseType);
       }
 
       const bytes = Buffer.from(await response.arrayBuffer());
-      res.setHeader("Content-Type", contentType);
+      if (!bytes.length) throw new Error("GitHub returned an empty role image");
+      res.setHeader("Content-Type", extensionType);
       res.setHeader("Cache-Control", "public, s-maxage=3600, stale-while-revalidate=86400");
       res.setHeader("X-Content-Type-Options", "nosniff");
       return res.status(200).send(bytes);
