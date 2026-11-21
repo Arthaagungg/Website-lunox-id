@@ -39,7 +39,21 @@
     .step-number{font-size:11px;color:#999;font-weight:700;letter-spacing:1.5px}
     .step h2{font-size:16px;letter-spacing:-.3px;margin:9px 0 5px}
     .step p{font-size:13px;color:var(--gray)}
-    .note{margin-top:35px;padding:16px 18px;background:var(--light);border-radius:4px;color:var(--gray);font-size:12px}
+
+    .button-docs{margin-top:75px;padding-top:28px;border-top:1px solid var(--line)}
+    .button-docs-intro{max-width:650px;color:var(--gray);font-size:14px;margin-top:12px}
+    .button-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:28px}
+    .button-card{padding:19px;border:1px solid var(--line);border-radius:5px;min-width:0}
+    .button-head{display:flex;align-items:center;gap:12px}
+    .button-emoji{width:38px;height:38px;object-fit:contain;flex:0 0 38px}
+    .button-card h3{font-size:16px;letter-spacing:-.3px}
+    .button-id{font-size:10px;color:#999;letter-spacing:1px;text-transform:uppercase}
+    .button-card p{font-size:13px;color:var(--gray);margin-top:13px}
+    .button-option{padding-top:10px;margin-top:10px;border-top:1px solid var(--line);font-size:12px!important}
+    .button-option strong{color:var(--black)}
+    .button-status{font-size:13px;color:var(--gray);margin-top:22px}
+    @media(max-width:600px){.button-grid{grid-template-columns:1fr}}
+\n    .note{margin-top:35px;padding:16px 18px;background:var(--light);border-radius:4px;color:var(--gray);font-size:12px}
     .cta{display:inline-block;margin-top:35px;padding:15px 22px;background:var(--black);color:white;border-radius:4px;font-size:13px;font-weight:700}
     footer{padding:30px 0;border-top:1px solid var(--line);color:#999;font-size:12px}
     @media(max-width:760px){.features,.steps{grid-template-columns:1fr;gap:12px}.feature{min-height:0}.howto{margin-top:55px}}
@@ -69,7 +83,15 @@
       <article class="feature"><div class="feature-number">02 / ORGANIZED</div><h2>Server lebih rapi</h2><p>Konsep ruang sementara membantu menjaga daftar channel suara agar tidak dipenuhi ruang yang jarang digunakan.</p></article>
       <article class="feature"><div class="feature-number">03 / COMMUNITY</div><h2>Lebih mudah berkumpul</h2><p>Anggota punya ruang untuk mengobrol, bermain, atau menghabiskan waktu bersama.</p></article>
     </section>
-    <section class="howto" aria-labelledby="howto-title">
+
+    <section class="button-docs" aria-labelledby="button-docs-title">
+      <div class="detail-label">PANDUAN TOMBOL VOICE ROOM</div>
+      <h2 id="button-docs-title" style="font-size:clamp(25px,4vw,38px);letter-spacing:-1.5px;margin-top:10px">Kenali setiap tombol LV.</h2>
+      <p class="button-docs-intro">Setiap tombol punya fungsi untuk mengatur ruang suara. Emoji dan penjelasan di bawah mengikuti dokumentasi dari bot LV.</p>
+      <div id="tempvoice-buttons" class="button-grid" aria-live="polite"></div>
+      <p id="tempvoice-status" class="button-status">Memuat panduan tombol…</p>
+    </section>
+\n    <section class="howto" aria-labelledby="howto-title">
       <div class="detail-label">CARA MENGGUNAKAN</div>
       <h2 id="howto-title" style="font-size:clamp(25px,4vw,38px);letter-spacing:-1.5px;margin-top:10px">Mulai berkumpul dengan LV.</h2>
       <div class="steps">
@@ -81,6 +103,56 @@
     </section>
     <a class="cta" href="https://discord.gg/pyVeaME9tj" target="_blank" rel="noopener noreferrer">Kunjungi Komunitas ↗</a>
   </main>
-  <footer><div class="container">© 2026 LUNOX.ID. Terhubung. Bermain. Bersama.</div></footer>
+
+  <script>
+    (async () => {
+      const grid = document.getElementById('tempvoice-buttons');
+      const status = document.getElementById('tempvoice-status');
+      try {
+        const response = await fetch('../data/tempvoice-docs.json', { cache: 'no-cache' });
+        if (!response.ok) throw new Error('Dokumentasi belum tersedia.');
+        const data = await response.json();
+        if (!Array.isArray(data.buttons) || !data.buttons.length) throw new Error('Belum ada dokumentasi tombol.');
+        const fragment = document.createDocumentFragment();
+        data.buttons.sort((a, b) => a.order - b.order).forEach(item => {
+          const card = document.createElement('article');
+          card.className = 'button-card';
+          const head = document.createElement('div');
+          head.className = 'button-head';
+          const emoji = document.createElement('img');
+          emoji.className = 'button-emoji';
+          emoji.src = `https://cdn.discordapp.com/emojis/${encodeURIComponent(item.emojiId)}.webp?size=64&quality=lossless`;
+          emoji.alt = '';
+          emoji.loading = 'lazy';
+          emoji.onerror = () => { emoji.hidden = true; };
+          const titleWrap = document.createElement('div');
+          const title = document.createElement('h3');
+          title.textContent = item.label;
+          const id = document.createElement('div');
+          id.className = 'button-id';
+          id.textContent = 'Tombol ' + item.id;
+          titleWrap.append(title, id);
+          head.append(emoji, titleWrap);
+          const description = document.createElement('p');
+          description.textContent = item.description;
+          card.append(head, description);
+          if (item.optionDescription) {
+            const option = document.createElement('p');
+            option.className = 'button-option';
+            const strong = document.createElement('strong');
+            strong.textContent = 'Petunjuk: ';
+            option.append(strong, document.createTextNode(item.optionDescription));
+            card.append(option);
+          }
+          fragment.append(card);
+        });
+        grid.append(fragment);
+        status.textContent = data.buttons.length + ' tombol tersedia · dokumentasi disinkronkan dari repository LV.';
+      } catch (error) {
+        status.textContent = 'Panduan tombol belum dapat dimuat. Silakan coba lagi nanti.';
+      }
+    })();
+  </script>
+\n  <footer><div class="container">© 2026 LUNOX.ID. Terhubung. Bermain. Bersama.</div></footer>
 </body>
 </html>
