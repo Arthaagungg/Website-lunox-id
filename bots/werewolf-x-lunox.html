@@ -97,6 +97,35 @@
       h1{font-size:34px;letter-spacing:-2px}
     }
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+    /* Werewolf guide */
+    .ww-section{margin-top:92px;padding-top:30px;border-top:1px solid var(--line)}
+    .section-heading{max-width:680px;margin-bottom:28px}
+    .section-kicker{display:block;margin-bottom:12px;font-size:10px;letter-spacing:2px;font-weight:800;color:#999}
+    .section-heading h2,.ww-note h2{font-size:clamp(27px,4vw,42px);line-height:1.12;letter-spacing:-1.8px;margin-bottom:12px}
+    .section-heading>p,.ww-note>p{color:var(--gray);font-size:14px;line-height:1.8}
+    .feature-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+    .feature-card{padding:22px;border:1px solid var(--line);border-radius:8px;min-width:0}
+    .feature-icon{display:block;font-size:23px;margin-bottom:18px}
+    .feature-card h3,.game-flow h3{font-size:15px;letter-spacing:-.3px;margin-bottom:6px}
+    .feature-card p,.game-flow p{font-size:13px;color:var(--gray);line-height:1.75}
+    .game-flow{list-style:none;border-top:1px solid var(--line)}
+    .game-flow li{display:grid;grid-template-columns:58px minmax(0,1fr);gap:16px;padding:20px 0;border-bottom:1px solid var(--line)}
+    .flow-number{font-size:12px;font-weight:800;color:#aaa;letter-spacing:1px;padding-top:2px}
+    .command-list{border-top:1px solid var(--line)}
+    .command-row{display:grid;grid-template-columns:150px minmax(0,1fr) auto;align-items:center;gap:16px;padding:17px 0;border-bottom:1px solid var(--line)}
+    .command-row>code{font-size:13px;font-weight:700;background:var(--light);padding:7px 9px;border-radius:4px;width:max-content;max-width:100%;overflow-wrap:anywhere}
+    .command-row strong{font-size:13px}
+    .command-row p{font-size:12px;color:var(--gray);line-height:1.7;margin-top:3px}
+    .command-row p code,.section-heading code{font-size:11px;background:var(--light);padding:2px 5px;border-radius:3px}
+    .command-tag{font-size:9px;letter-spacing:.8px;text-transform:uppercase;color:#888;border:1px solid var(--line);padding:4px 7px;border-radius:3px;white-space:nowrap}
+    .command-note{font-size:11px;color:#999;margin-top:14px;line-height:1.7}
+    .ww-note{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:35px;align-items:center;padding:28px;background:var(--light);border:0;border-radius:8px}
+    .ww-note h2{margin:0}
+    .ww-note>p{font-size:13px}
+    @media(max-width:760px){.ww-section{margin-top:68px}.feature-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.command-row{grid-template-columns:115px minmax(0,1fr);gap:10px}.command-tag{grid-column:2;justify-self:start}.ww-note{grid-template-columns:1fr;gap:12px}}
+    @media(max-width:480px){.feature-grid{grid-template-columns:1fr}.feature-card{padding:18px}.command-row{grid-template-columns:1fr;gap:7px;padding:15px 0}.command-tag{grid-column:1}.game-flow li{grid-template-columns:38px minmax(0,1fr);gap:10px}.ww-note{padding:20px}}
+
 </style>
 </head>
 <body>
