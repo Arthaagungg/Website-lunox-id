@@ -1,0 +1,149 @@
+{
+  "generatedAt": "2026-11-21T19:05:27.017Z",
+  "buttons": [
+    {
+      "id": "name",
+      "label": "Nama",
+      "description": "Ubah nama channel suara",
+      "optionDescription": "",
+      "emojiId": "1408156766834917537",
+      "order": 1,
+      "row": 1
+    },
+    {
+      "id": "limit",
+      "label": "Batas",
+      "description": "Atur batas jumlah pengguna di channel",
+      "optionDescription": "",
+      "emojiId": "1408156441990402220",
+      "order": 2,
+      "row": 1
+    },
+    {
+      "id": "privacy",
+      "label": "Privasi",
+      "description": "Ubah pengaturan privasi channel",
+      "optionDescription": "Atur privasi — publik atau privat.",
+      "emojiId": "1408156193465045083",
+      "order": 3,
+      "row": 1
+    },
+    {
+      "id": "region",
+      "label": "Wilayah",
+      "description": "Ubah wilayah server channel suara",
+      "optionDescription": "Pilih wilayah server suara.",
+      "emojiId": "1408156085797257398",
+      "order": 4,
+      "row": 1
+    },
+    {
+      "id": "untrust",
+      "label": "Cabut Akses",
+      "description": "Cabut akses khusus dari user tertentu",
+      "optionDescription": "Pilih user untuk dicabut aksesnya.",
+      "emojiId": "1408155580614578337",
+      "order": 5,
+      "row": 2
+    },
+    {
+      "id": "trust",
+      "label": "Izinkan",
+      "description": "Izinkan user tertentu untuk gabung dan ngobrol",
+      "optionDescription": "Pilih user yang kamu percaya.",
+      "emojiId": "1408155432467435520",
+      "order": 6,
+      "row": 2
+    },
+    {
+      "id": "block",
+      "label": "Blokir",
+      "description": "Cegah user melihat atau masuk ke channel",
+      "optionDescription": "Pilih user untuk diblokir.",
+      "emojiId": "1408155166988959765",
+      "order": 7,
+      "row": 2
+    },
+    {
+      "id": "unblock",
+      "label": "Buka Blokir",
+      "description": "Pulihkan akses dan visibilitas user yang diblokir",
+      "optionDescription": "Pilih user untuk dibuka blokirnya.",
+      "emojiId": "1408155270986600669",
+      "order": 8,
+      "row": 2
+    },
+    {
+      "id": "bitrate",
+      "label": "Bitrate",
+      "description": "Atur kualitas audio channel",
+      "optionDescription": "Pilih bitrate.",
+      "emojiId": "1408156329629188238",
+      "order": 9,
+      "row": 3
+    },
+    {
+      "id": "invite",
+      "label": "Undang",
+      "description": "Undang user ke channel suara kamu",
+      "optionDescription": "Pilih user untuk diundang.",
+      "emojiId": "1408154840672112831",
+      "order": 10,
+      "row": 3
+    },
+    {
+      "id": "kick",
+      "label": "Keluarkan",
+      "description": "Keluarkan user dari channel suara",
+      "optionDescription": "Pilih user untuk dikeluarkan.",
+      "emojiId": "1408159885799198800",
+      "order": 11,
+      "row": 3
+    },
+    {
+      "id": "claim",
+      "label": "Ambil Alih",
+      "description": "Ambil alih channel kalau owner-nya sudah keluar",
+      "optionDescription": "",
+      "emojiId": "1408154443803005018",
+      "order": 12,
+      "row": 3
+    },
+    {
+      "id": "dnd",
+      "label": "Jangan Ganggu",
+      "description": "Aktif/nonaktifkan mode Jangan Ganggu di channel",
+      "optionDescription": "",
+      "emojiId": "1408155913659093135",
+      "order": 13,
+      "row": 4
+    },
+    {
+      "id": "disconnect",
+      "label": "Disconnect",
+      "description": "Disconnect otomatis sesuai dengan waktu yang di tentukan.",
+      "optionDescription": "",
+      "emojiId": "1408157113997328416",
+      "order": 14,
+      "row": 4
+    },
+    {
+      "id": "transfer",
+      "label": "Pindahkan",
+      "description": "Pindahkan kepemilikan channel ke user lain",
+      "optionDescription": "Pilih user untuk dijadikan owner baru.",
+      "emojiId": "1408154729334444084",
+      "order": 15,
+      "row": 4
+    },
+    {
+      "id": "delete",
+      "label": "Hapus",
+      "description": "Hapus channel suara sementara kamu",
+      "optionDescription": "",
+      "emojiId": "1408154578305679420",
+      "order": 16,
+      "row": 4
+    }
+  ]
+}
