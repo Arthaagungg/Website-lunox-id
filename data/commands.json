@@ -1,0 +1,180 @@
+{
+  "updatedAt": "2026-11-21T18:44:13.659Z",
+  "source": "Lunox-2026",
+  "commands": [
+    {
+      "name": "afk",
+      "description": "Set your AFK status.",
+      "usage": "afk [reason]",
+      "aliases": [],
+      "category": "member",
+      "categoryLabel": "Member",
+      "access": "Semua member",
+      "subcommands": [],
+      "examples": []
+    },
+    {
+      "name": "avatar",
+      "description": "Lihat avatar global dan server pengguna",
+      "usage": "avatar [@user | userID]",
+      "aliases": [
+        "ava"
+      ],
+      "category": "member",
+      "categoryLabel": "Member",
+      "access": "Semua member",
+      "subcommands": [],
+      "examples": []
+    },
+    {
+      "name": "listbotmusic",
+      "description": "Menampilkan daftar bot musik beserta status availability.",
+      "usage": "listbotmusic",
+      "aliases": [
+        "lbm",
+        "listbot"
+      ],
+      "category": "member",
+      "categoryLabel": "Member",
+      "access": "Semua member",
+      "subcommands": [],
+      "examples": []
+    },
+    {
+      "name": "ping",
+      "description": "Cek ping bot (WebSocket, REST API, dan Message Latency)",
+      "usage": "ping",
+      "aliases": [
+        "p"
+      ],
+      "category": "member",
+      "categoryLabel": "Member",
+      "access": "Semua member",
+      "subcommands": [],
+      "examples": []
+    },
+    {
+      "name": "snipe",
+      "description": "Lihat pesan yang dihapus atau diedit",
+      "usage": "snipe <pesan|edit> [jumlah]",
+      "aliases": [
+        "sn"
+      ],
+      "category": "member",
+      "categoryLabel": "Member",
+      "access": "Semua member",
+      "subcommands": [
+        {
+          "name": "pesan",
+          "description": "Lihat pesan yang dihapus",
+          "usage": "[jumlah]"
+        },
+        {
+          "name": "edit",
+          "description": "Lihat pesan yang diedit",
+          "usage": "[jumlah]"
+        }
+      ],
+      "examples": []
+    },
+    {
+      "name": "ar",
+      "description": "Kelola Auto Reaction server.",
+      "usage": "ar <add|list|delete> [argumen]",
+      "aliases": [
+        "acr",
+        "alr",
+        "adr"
+      ],
+      "category": "staff",
+      "categoryLabel": "Staff",
+      "access": "Khusus staff",
+      "subcommands": [],
+      "examples": []
+    },
+    {
+      "name": "gw",
+      "description": "Kelola giveaway server.",
+      "usage": "gw <create|edit|end|pause|resume|reroll> [argumen]",
+      "aliases": [
+        "giveaway-create",
+        "gcreate",
+        "gstart",
+        "giveaway-edit",
+        "gedit",
+        "giveaway-end",
+        "gend",
+        "giveaway-pause",
+        "gpause",
+        "giveaway-resume",
+        "gresume",
+        "giveaway-reroll",
+        "groll"
+      ],
+      "category": "staff",
+      "categoryLabel": "Staff",
+      "access": "Khusus staff",
+      "subcommands": [],
+      "examples": []
+    },
+    {
+      "name": "customrole",
+      "description": "Kelola custom role booster kamu",
+      "usage": "customrole <subcommand>",
+      "aliases": [
+        "cr"
+      ],
+      "category": "booster",
+      "categoryLabel": "Booster & Support",
+      "access": "Booster / Support",
+      "subcommands": [
+        {
+          "name": "claim",
+          "description": "Ambil custom role kamu",
+          "usage": ""
+        },
+        {
+          "name": "name",
+          "description": "Ganti nama custom role",
+          "usage": "<nama_baru>"
+        },
+        {
+          "name": "color",
+          "description": "Ubah warna custom role",
+          "usage": "<#hex>"
+        },
+        {
+          "name": "icon",
+          "description": "Ganti icon custom role",
+          "usage": "<link | upload>"
+        },
+        {
+          "name": "info",
+          "description": "Lihat info custom role kamu",
+          "usage": ""
+        },
+        {
+          "name": "gift",
+          "description": "Bagikan custom role kamu ke user lain",
+          "usage": "<@user>"
+        },
+        {
+          "name": "delete",
+          "description": "Hapus custom role kamu",
+          "usage": ""
+        },
+        {
+          "name": "remove",
+          "description": "Cabut custom role dari user lain",
+          "usage": "<@user>"
+        },
+        {
+          "name": "removebg",
+          "description": "Hapus background icon custom role",
+          "usage": "<upload>"
+        }
+      ],
+      "examples": []
+    }
+  ]
+}
