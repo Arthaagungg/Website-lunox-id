@@ -1,6 +1,4 @@
 const mongoose = require("mongoose");
-const path = require("path");
-
 let cached = global.__werewolfMongo;
 if (!cached) {
   cached = global.__werewolfMongo = { connection: null, promise: null };
@@ -51,7 +49,10 @@ module.exports = async function handler(req, res) {
       }, { collection: "werewolfroles", versionKey: false })
     );
 
-    const documents = await Role.find({})
+    const documents = await Role.find({
+      roleId: { $nin: ["the_candle", "troublemaker", "cupid", "lonewolf"] },
+      category: { $in: ["Good Side", "Bad Side", "Neutral", "No Side"] }
+    })
       .select({ _id: 0, roleId: 1, name: 1, category: 1, description: 1, imageName: 1, emoji: 1 })
       .sort({ category: 1, name: 1 })
       .lean();
@@ -71,7 +72,7 @@ module.exports = async function handler(req, res) {
       const rawEmoji = String(role.emoji || "");
       const customEmoji = rawEmoji.match(/^<a?:[A-Za-z0-9_]+:(\\d+)>$/);
       const emojiUrl = customEmoji
-        ? "https://cdn.discordapp.com/emojis/" + customEmoji[1] + ".png?size=128&quality=lossless"
+        ? "https://cdn.discordapp.com/emojis/" + customEmoji[2] + (customEmoji[1] ? ".gif" : ".png") + "?size=128&quality=lossless"
         : null;
 
       return {
@@ -84,7 +85,7 @@ module.exports = async function handler(req, res) {
         imageUrl,
         imageFallbackUrl
       };
-    });;
+    });
 
     res.setHeader("Cache-Control", "public, s-maxage=60, stale-while-revalidate=120");
     return res.status(200).json({ roles, total: roles.length });
