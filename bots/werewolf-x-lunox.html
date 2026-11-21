@@ -199,6 +199,54 @@
     @media(max-width:380px){.role-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.role-card-art{height:150px}}
     @media(prefers-reduced-motion:reduce){.role-card{transition:none}.role-card:hover{transform:none}}
 
+
+    /* LUNOX unified dark-fantasy theme */
+    :root{
+      --black:#eee7d8;
+      --gray:#aaa292;
+      --light:#1d1a14;
+      --line:#403724;
+      --white:#11110f;
+      --gold:#b69a58;
+      --gold-bright:#d2b56c;
+      color-scheme:dark;
+    }
+    html{background:#11110f;color-scheme:dark}
+    body{background:#11110f!important;color:#eee7d8!important}
+    ::selection{background:#b69a58;color:#17130b}
+    a:focus-visible,button:focus-visible,input:focus-visible{outline-color:#d2b56c!important}
+    nav{border-color:#403724!important}
+    .logo,.brand,.footer-brand,.footer-logo,.back{color:#eee7d8!important}
+    .nav-links,.nav-links a,.hero-description,.section-description,.about-details p,
+    .bot-description,.description,.detail p,.commands-lead,.command-description,
+    .feature p,.step p,.button-card p,.button-docs-intro,.note,.role-showcase-copy p{color:#aaa292!important}
+    .eyebrow,.section-number,.bot-index,.feature-number,.step-number,.detail-label,
+    .commands-kicker,.command-label,.command-note,.button-id{color:#b69a58!important}
+    h1,h2,h3,.bot-name,.commands-title,.command-card h3,.feature h2,.step h2,
+    .button-card h3{color:#f0e5cc}
+    section,.about-details,.bot-list,.howto,.button-docs,.commands-section,
+    .detail,footer{border-color:#403724!important}
+    .bot-card,.bot-card-link{border-color:#403724!important}
+    .bot-card:hover,.bot-card-link:hover{background:#1b1812!important}
+    .bot-icon,.avatar{background:#211c13!important;border-color:#51452d!important}
+    .bot-type,.type,.command-access,.command-filter{background:#191711!important;border-color:#51452d!important;color:#c8b98f!important}
+    .command-filter[aria-pressed="true"]{background:#a7833e!important;border-color:#d2b56c!important;color:#17130b!important}
+    .command-search{background:#171510!important;border-color:#51452d!important;color:#eee7d8!important}
+    .command-card,.feature,.button-card,.command-sub,.note,.prefix-status,.join-section,
+    .menu-toggle,.nav-links.is-open{background:#191711!important;border-color:#403724!important;color:#eee7d8!important}
+    .command-card code,.prefix-status{background:#252015!important;color:#e8d9b7!important}
+    .command-sub{background:#211c13!important}
+    .join-section{border-top:1px solid #403724!important}
+    .join-button,.cta{background:#a7833e!important;color:#17130b!important}
+    .join-button:hover,.cta:hover{background:#d2b56c!important}
+    .text-link{border-color:#b69a58!important;color:#e8d9b7!important}
+    .menu-toggle{color:#eee7d8!important}
+    .menu-toggle-icon span{background:currentColor!important}
+    .nav-links a{border-color:#403724!important}
+    .command-empty,.role-status{background:#191711!important;border-color:#51452d!important;color:#c8b98f!important}
+    .bot-arrow{color:#b69a58!important}
+    @media(max-width:760px){.nav-links{background:#191711!important;border-color:#403724!important}}
+
 </style>
 </head>
 <body>
