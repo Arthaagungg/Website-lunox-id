@@ -66,7 +66,7 @@ module.exports = async function handler(req, res) {
         ? "/assets/werewolf-roles/" + encodeURIComponent(`card-${safeRoleId}.${extension}`)
         : null;
       const imageFallbackUrl = safeRoleId
-        ? "/assets/werewolf-roles/" + encodeURIComponent(`card-${safeRoleId}.${alternateExtension}`)
+        ? "/api/werewolf-role-image?roleId=" + encodeURIComponent(safeRoleId)
         : null;
 
       const rawEmoji = String(role.emoji || "");
