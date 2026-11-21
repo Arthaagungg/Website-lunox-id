@@ -117,6 +117,51 @@
       <div class="detail-label">TENTANG BOT</div>
       <p>Werewolf X Lunox menghadirkan permainan Werewolf untuk dimainkan bersama teman-teman di Discord. Baca situasi, diskusikan kecurigaan, susun strategi, dan cari tahu siapa yang bisa dipercaya. Untuk informasi lebih lanjut mengenai fitur dan penggunaan, kunjungi komunitas Discord LUNOX.ID.</p>
     </div>
+
+    <section class="ww-section" aria-labelledby="ww-features">
+      <div class="section-heading"><span class="section-kicker">DI DALAM PERMAINAN</span><h2 id="ww-features">Lebih dari sekadar menebak.</h2><p>Permainan berjalan lewat lobby, aksi rahasia, diskusi, dan voting. Moderator mengatur jalannya permainan dari Discord.</p></div>
+      <div class="feature-grid">
+        <article class="feature-card"><span class="feature-icon">👥</span><h3>Lobby bersama</h3><p>Pemain bergabung lewat tombol Join dan Leave. Lobby menampilkan peserta, moderator, serta komposisi role yang dipilih.</p></article>
+        <article class="feature-card"><span class="feature-icon">🃏</span><h3>Komposisi role</h3><p>Moderator dapat menambah atau mengurangi jumlah role, menyimpan susunan, lalu memuatnya kembali untuk permainan berikutnya.</p></article>
+        <article class="feature-card"><span class="feature-icon">🌙</span><h3>Aksi malam rahasia</h3><p>Dashboard malam dikirim melalui DM moderator. Role dengan kemampuan malam dapat dipanggil dan menjalankan aksinya secara terarah.</p></article>
+        <article class="feature-card"><span class="feature-icon">☀️</span><h3>Fase siang & voting</h3><p>Permainan memiliki fase malam, siang, voting, dan berakhir. Pemain berdiskusi untuk menentukan siapa yang akan dieliminasi.</p></article>
+        <article class="feature-card"><span class="feature-icon">🎯</span><h3>Kemampuan role</h3><p>Beberapa role memiliki kemampuan khusus seperti mengintip, melindungi, meracuni, menembak, atau menebak role pemain lain.</p></article>
+        <article class="feature-card"><span class="feature-icon">🏆</span><h3>Kondisi kemenangan</h3><p>Sistem memeriksa jumlah Werewolf dan warga yang masih hidup untuk menentukan kemenangan tim secara otomatis.</p></article>
+      </div>
+    </section>
+
+    <section class="ww-section" aria-labelledby="ww-flow">
+      <div class="section-heading"><span class="section-kicker">ALUR BERMAIN</span><h2 id="ww-flow">Mulai dari lobby sampai pemenang.</h2></div>
+      <ol class="game-flow">
+        <li><span class="flow-number">01</span><div><h3>Buat lobby</h3><p>Moderator jalankan command <code>!ww</code> di channel permainan.</p></div></li>
+        <li><span class="flow-number">02</span><div><h3>Gabung dan susun role</h3><p>Pemain menekan Join. Moderator mengatur komposisi role, lalu mulai permainan saat jumlah pemain dan role sesuai.</p></div></li>
+        <li><span class="flow-number">03</span><div><h3>Jalankan malam</h3><p>Moderator mengelola dashboard malam melalui DM dan memanggil role yang memiliki aksi.</p></div></li>
+        <li><span class="flow-number">04</span><div><h3>Diskusi dan voting</h3><p>Pemain yang masih hidup berdiskusi, lalu menentukan pemain yang akan dieliminasi.</p></div></li>
+        <li><span class="flow-number">05</span><div><h3>Tentukan pemenang</h3><p>Game berlanjut antar fase sampai kondisi kemenangan tim terpenuhi atau moderator menghentikan permainan.</p></div></li>
+      </ol>
+    </section>
+
+    <section class="ww-section" aria-labelledby="ww-commands">
+      <div class="section-heading"><span class="section-kicker">COMMAND</span><h2 id="ww-commands">Perintah Werewolf</h2><p>Prefix bawaan bot adalah <code>!</code> dan dapat diubah melalui konfigurasi bot. Aksi tertentu hanya tersedia melalui DM.</p></div>
+      <div class="command-list">
+        <div class="command-row"><code>!ww</code><div><strong>Buat lobby</strong><p>Memulai lobby permainan Werewolf di channel.</p></div><span class="command-tag">Moderator</span></div>
+        <div class="command-row"><code>!wwroleinfo</code><div><strong>Lihat daftar role</strong><p>Menampilkan role satu per satu beserta kategori dan deskripsinya.</p></div><span class="command-tag">Info</span></div>
+        <div class="command-row"><code>!db</code><div><strong>Dashboard role</strong><p>Menampilkan daftar role dari database dan status checklist implementasinya. Alias: <code>!dash</code>, <code>!roles</code>.</p></div><span class="command-tag">Info</span></div>
+        <div class="command-row"><code>!gunfire</code><div><strong>Aksi Gunner</strong><p>Memilih target tembakan saat masih hidup dan memiliki peluru. Hanya melalui DM. Alias: <code>!tembak</code>.</p></div><span class="command-tag">Role khusus</span></div>
+        <div class="command-row"><code>!shoot</code><div><strong>Aksi Hunter</strong><p>Memilih target tembakan setelah Hunter tereliminasi. Hanya melalui DM.</p></div><span class="command-tag">Role khusus</span></div>
+        <div class="command-row"><code>!wizzard</code><div><strong>Kemampuan Wizzard</strong><p>Memilih pemain untuk ditebak role-nya pada fase siang. Hanya melalui DM. Alias: <code>!tebak</code>.</p></div><span class="command-tag">Role khusus</span></div>
+        <div class="command-row"><code>!killplayer</code><div><strong>Eliminasi pemain</strong><p>Moderator menghapus pemain hidup dari permainan. Gunakan dengan mention atau ID pemain.</p></div><span class="command-tag">Moderator</span></div>
+        <div class="command-row"><code>!stopgame</code><div><strong>Hentikan game</strong><p>Menghentikan game aktif dan membersihkan data game. Alias: <code>!forceend</code>, <code>!hentikan</code>.</p></div><span class="command-tag">Moderator</span></div>
+        <div class="command-row"><code>!gamewin</code><div><strong>Akhiri permainan</strong><p>Moderator menghentikan permainan dan dapat menentukan label pemenang. Alias: <code>!endgame</code>, <code>!stopgame</code>.</p></div><span class="command-tag">Moderator</span></div>
+      </div>
+      <p class="command-note">Daftar ini merangkum perintah yang tersedia pada source bot saat halaman diperbarui. Tidak semua command dapat digunakan oleh seluruh pemain.</p>
+    </section>
+
+    <section class="ww-section ww-note" aria-label="Catatan permainan">
+      <div><span class="section-kicker">CATATAN</span><h2>Siapkan DM sebelum bermain.</h2></div>
+      <p>Beberapa informasi role dan aksi permainan dikirim melalui pesan pribadi Discord. Pastikan DM dari anggota server diizinkan agar fitur tersebut dapat digunakan dengan lancar.</p>
+    </section>
+
     <a class="cta" href="https://discord.gg/pyVeaME9tj" target="_blank" rel="noopener noreferrer">Kunjungi Komunitas ↗</a>
   </main>
   <footer><div class="container">© 2026 LUNOX.ID. Terhubung. Bermain. Bersama.</div></footer>
