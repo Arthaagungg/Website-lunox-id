@@ -69,7 +69,7 @@ module.exports = async function handler(req, res) {
       }
 
       const rawEmoji = String(role.emoji || "");
-      const customEmoji = rawEmoji.match(/^<a?:[A-Za-z0-9_]+:(\\d+)>$/);
+      const customEmoji = rawEmoji.match(/^<a?:[A-Za-z0-9_]+:(\d+)>$/);
       const emojiUrl = customEmoji
         ? "https://cdn.discordapp.com/emojis/" + customEmoji[1] + ".png?size=128&quality=lossless"
         : null;
