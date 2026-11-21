@@ -30,6 +30,35 @@
     .detail-label{font-size:11px;letter-spacing:2px;color:#999;font-weight:700}
     .detail p{max-width:600px;color:var(--gray);font-size:14px}
     .cta{display:inline-block;margin-top:55px;padding:15px 22px;background:var(--black);color:white;border-radius:4px;font-size:13px;font-weight:700}
+
+    .commands-section{margin-top:100px;padding-top:38px;border-top:1px solid var(--line)}
+    .commands-heading{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:26px}
+    .commands-kicker{font-size:10px;letter-spacing:2px;color:#999;font-weight:700}
+    .commands-title{font-size:clamp(30px,5vw,44px);letter-spacing:-2px;line-height:1.1;margin-top:9px}
+    .commands-lead{max-width:390px;color:var(--gray);font-size:13px}
+    .command-tools{display:flex;gap:10px;flex-wrap:wrap;margin:25px 0 13px}
+    .command-search{flex:1;min-width:220px;height:44px;border:1px solid var(--line);border-radius:4px;padding:0 13px;font:inherit;font-size:13px}
+    .command-search:focus-visible,.command-filter:focus-visible{outline:2px solid var(--black);outline-offset:3px}
+    .command-filters{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:18px}
+    .command-filter{border:1px solid var(--line);background:#fff;color:var(--gray);padding:8px 12px;border-radius:3px;font:inherit;font-size:11px;cursor:pointer}
+    .command-filter[aria-pressed="true"]{background:var(--black);border-color:var(--black);color:#fff}
+    .command-status{font-size:11px;color:#999;margin-bottom:12px}
+    .command-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+    .command-card{border:1px solid var(--line);border-radius:5px;padding:18px;background:#fff;min-width:0}
+    .command-card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+    .command-card h3{font-size:17px;letter-spacing:-.4px}
+    .command-access{font-size:9px;color:var(--gray);border:1px solid var(--line);border-radius:3px;padding:4px 7px;white-space:nowrap}
+    .command-description{font-size:12px;color:var(--gray);margin:8px 0 13px}
+    .command-label{font-size:9px;letter-spacing:1.4px;color:#999;font-weight:700;margin:12px 0 5px}
+    .command-card code{display:inline-block;max-width:100%;overflow-wrap:anywhere;background:var(--light);padding:5px 7px;border-radius:3px;font:11px/1.6 Consolas,monospace}
+    .command-aliases{display:flex;gap:5px;flex-wrap:wrap}
+    .command-subcommands{display:grid;gap:6px;margin-top:7px}
+    .command-sub{padding:9px;background:#fafaf9;border-radius:3px}
+    .command-sub strong{font-size:11px}.command-sub p{font-size:11px;color:var(--gray);margin:2px 0 5px}
+    .command-empty{grid-column:1/-1;padding:25px;text-align:center;border:1px dashed var(--line);border-radius:4px;color:var(--gray);font-size:13px}
+    .command-note{margin-top:20px;color:#999;font-size:11px}
+    @media(max-width:650px){.commands-heading{display:block}.commands-lead{margin-top:12px}.command-list{grid-template-columns:1fr}.commands-section{margin-top:75px}}
+
     footer{padding:30px 0;border-top:1px solid var(--line);color:#999;font-size:12px}
     @media(max-width:600px){nav{height:70px}.profile{gap:18px}.avatar{width:78px;height:78px;border-radius:17px}h1{letter-spacing:-2.5px}.detail{grid-template-columns:1fr;gap:12px}main{padding:75px 0 90px}}
     @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
@@ -52,9 +81,63 @@
       <div class="detail-label">TENTANG BOT</div>
       <p>LUNOX.ID hadir untuk membantu kebutuhan operasional server Discord. Bot ini menjadi bagian dari ekosistem LUNOX.ID dan dirancang untuk mendukung aktivitas komunitas sehari-hari. Untuk informasi lebih lanjut mengenai fitur dan penggunaan, kunjungi komunitas Discord LUNOX.ID.</p>
     </div>
-    <a class="cta" href="../commands.html" style="margin-right:10px;background:#f5f5f3;color:#171717;border:1px solid #e9e9e7">Lihat Command →</a>
+
+    <section class="commands-section" id="commands" aria-labelledby="commands-title">
+      <div class="commands-heading">
+        <div>
+          <div class="commands-kicker">DOKUMENTASI / COMMAND</div>
+          <h2 class="commands-title" id="commands-title">Jelajahi command.</h2>
+        </div>
+        <p class="commands-lead">Semua panduan penggunaan LUNOX.ID ada di sini. Cari command atau pilih kategori untuk menemukan fitur yang kamu butuhkan.</p>
+      </div>
+      <div class="command-tools">
+        <input class="command-search" id="command-search" type="search" placeholder="Cari nama atau fungsi command..." aria-label="Cari command">
+      </div>
+      <div class="command-filters" aria-label="Filter kategori command">
+        <button class="command-filter" type="button" data-filter="all" aria-pressed="true">Semua</button>
+        <button class="command-filter" type="button" data-filter="member" aria-pressed="false">Member</button>
+        <button class="command-filter" type="button" data-filter="staff" aria-pressed="false">Staff</button>
+        <button class="command-filter" type="button" data-filter="booster" aria-pressed="false">Booster &amp; Support</button>
+      </div>
+      <p class="command-status" id="command-status" aria-live="polite">Memuat daftar command...</p>
+      <div class="command-list" id="command-list"></div>
+      <p class="command-note">Gunakan prefix yang aktif di server Discord. Contoh format menggunakan <code>!!</code>; prefix dapat berbeda. Command Developer tidak ditampilkan di dokumentasi publik.</p>
+    </section>
+
     <a class="cta" href="https://discord.gg/pyVeaME9tj" target="_blank" rel="noopener noreferrer">Kunjungi Komunitas ↗</a>
   </main>
+
+  <script>
+    (() => {
+      const list=document.getElementById("command-list");
+      const search=document.getElementById("command-search");
+      const status=document.getElementById("command-status");
+      if(!list||!search||!status)return;
+      let commands=[],active="all";
+      const esc=value=>String(value??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+      function render(){
+        const q=search.value.trim().toLowerCase();
+        const rows=commands.filter(c=>(active==="all"||c.category===active)&&[c.name,c.description,...(c.aliases||[])].join(" ").toLowerCase().includes(q));
+        status.textContent=rows.length+" command ditampilkan";
+        list.innerHTML=rows.length?rows.map(c=>'<article class="command-card"><div class="command-card-top"><h3>'+esc(c.name)+'</h3><span class="command-access">'+esc(c.access)+'</span></div><p class="command-description">'+esc(c.description)+'</p><div class="command-label">CARA PAKAI</div><code>!!'+esc(c.usage||c.name)+'</code>'+(c.aliases?.length?'<div class="command-label">ALIAS</div><div class="command-aliases">'+c.aliases.map(x=>'<code>!!'+esc(x)+'</code>').join("")+'</div>':'')+(c.subcommands?.length?'<div class="command-label">SUBCOMMAND</div><div class="command-subcommands">'+c.subcommands.map(s=>'<div class="command-sub"><strong>'+esc(s.name)+'</strong><p>'+esc(s.description||"")+'</p><code>!!'+esc(c.name)+' '+esc(s.name)+(s.usage?.trim()?" "+esc(s.usage.trim()):"")+'</code></div>').join("")+'</div>':'')+'</article>').join(""):'<div class="command-empty">Command tidak ditemukan. Coba kata kunci lain.</div>';
+      }
+      search.addEventListener("input",render);
+      document.querySelectorAll(".command-filter").forEach(button=>button.addEventListener("click",()=>{
+        active=button.dataset.filter;
+        document.querySelectorAll(".command-filter").forEach(item=>item.setAttribute("aria-pressed",String(item===button)));
+        render();
+      }));
+      fetch("../data/commands.json").then(response=>{if(!response.ok)throw Error("Data unavailable");return response.json();}).then(json=>{
+        commands=Array.isArray(json.commands)?json.commands:[];
+        status.textContent="Dokumentasi tersinkron otomatis dari repositori LUNOX-2026.";
+        render();
+      }).catch(()=>{
+        status.textContent="Daftar command belum dapat dimuat.";
+        list.innerHTML='<div class="command-empty">Data command sedang tidak tersedia. Silakan muat ulang halaman.</div>';
+      });
+    })();
+  </script>
+
   <footer><div class="container">© 2026 LUNOX.ID. Terhubung. Bermain. Bersama.</div></footer>
 </body>
 </html>
