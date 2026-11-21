@@ -29,7 +29,11 @@
       height: 82px; display: flex; justify-content: space-between;
       align-items: center; border-bottom: 1px solid var(--line);
     }
-    .logo { font-size: 21px; font-weight: 800; letter-spacing: -1.2px; }
+    .logo { display:flex; align-items:center; gap:11px; font-size:21px; font-weight:800; letter-spacing:-1.2px; }
+    .logo img { width:36px; height:36px; display:block; border-radius:9px; }
+    .footer-brand { display:flex; align-items:center; gap:9px; color:var(--black); }
+    .footer-brand img { width:30px; height:30px; border-radius:8px; }
+    .bot-icon { width:68px; height:68px; display:block; object-fit:cover; border-radius:50%; border:1px solid var(--line); }
     .nav-links { display: flex; gap: 34px; color: var(--gray); font-size: 13px; }
     .nav-links a { transition: color .2s; }
     .nav-links a:hover { color: var(--black); }
@@ -123,7 +127,7 @@
 </head>
 <body>
   <nav class="container">
-    <a href="#" class="logo">LUNOX.ID</a>
+    <a href="#" class="logo"><img src="assets/lunox-mark.svg" alt="">LUNOX.ID</a>
     <div class="nav-links">
       <a href="#about">About</a>
       <a href="#bots">Our Bots</a>
@@ -189,7 +193,7 @@
         </div>
         <div class="bot-list">
           <article class="bot-card">
-            <div class="bot-icon">L</div>
+            <img class="bot-icon" src="assets/bot-lunox.svg" alt="Avatar bot LUNOX.ID">
             <div>
               <div class="bot-name">LUNOX.ID</div>
               <div class="bot-type">Server Utility</div>
@@ -198,7 +202,7 @@
             <div class="bot-arrow">↗</div>
           </article>
           <article class="bot-card">
-            <div class="bot-icon">LV</div>
+            <img class="bot-icon" src="assets/bot-lv.svg" alt="Avatar bot LV">
             <div>
               <div class="bot-name">LV</div>
               <div class="bot-type">Temporary Voice Room</div>
@@ -207,7 +211,7 @@
             <div class="bot-arrow">↗</div>
           </article>
           <article class="bot-card">
-            <div class="bot-icon">W</div>
+            <img class="bot-icon" src="assets/bot-werewolf.svg" alt="Avatar bot Werewolf X Lunox">
             <div>
               <div class="bot-name">Werewolf X Lunox</div>
               <div class="bot-type">Werewolf Game</div>
@@ -236,7 +240,7 @@
 
   <footer class="container">
     <div class="footer-content">
-      <div class="footer-logo">LUNOX.ID</div>
+      <div class="footer-brand"><img src="assets/lunox-mark.svg" alt=""> <span class="footer-logo">LUNOX.ID</span></div>
       <div>© 2026 LUNOX.ID. All rights reserved.</div>
       <div>Terhubung. Bermain. Bersama.</div>
     </div>
