@@ -126,6 +126,26 @@
     @media(max-width:760px){.ww-section{margin-top:68px}.feature-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.command-row{grid-template-columns:115px minmax(0,1fr);gap:10px}.command-tag{grid-column:2;justify-self:start}.ww-note{grid-template-columns:1fr;gap:12px}}
     @media(max-width:480px){.feature-grid{grid-template-columns:1fr}.feature-card{padding:18px}.command-row{grid-template-columns:1fr;gap:7px;padding:15px 0}.command-tag{grid-column:1}.game-flow li{grid-template-columns:38px minmax(0,1fr);gap:10px}.ww-note{padding:20px}}
 
+
+    .role-status{padding:22px;border:1px solid var(--line);border-radius:8px;color:var(--gray);font-size:13px}
+    .role-groups{display:grid;gap:38px}
+    .role-category h3{font-size:18px;letter-spacing:-.5px;margin-bottom:15px}
+    .role-category-count{font-size:11px;color:#999;font-weight:400;margin-left:8px}
+    .role-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+    .role-card{min-width:0;overflow:hidden;border:1px solid var(--line);border-radius:9px;background:#fff}
+    .role-art{position:relative;display:flex;align-items:center;justify-content:center;aspect-ratio:4/3;background:var(--light);overflow:hidden}
+    .role-art img{width:100%;height:100%;object-fit:contain}
+    .role-art-fallback{display:none;align-items:center;justify-content:center;width:100%;height:100%;font-size:48px;color:#aaa}
+    .role-art.is-empty img{display:none}
+    .role-art.is-empty .role-art-fallback{display:flex}
+    .role-copy{padding:17px}
+    .role-name{font-size:16px;line-height:1.3;letter-spacing:-.35px;margin-bottom:5px}
+    .role-category-label{font-size:10px;letter-spacing:1px;text-transform:uppercase;color:#999;font-weight:700}
+    .role-description{font-size:12px;color:var(--gray);line-height:1.75;margin-top:12px;overflow-wrap:anywhere}
+    .role-error{color:#8b4a3c;background:#fff8f6;border-color:#f0ddd7}
+    @media(max-width:760px){.role-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:480px){.role-grid{grid-template-columns:1fr}.role-art{aspect-ratio:16/9}.role-copy{padding:15px}}
+
 </style>
 </head>
 <body>
@@ -170,22 +190,6 @@
       </ol>
     </section>
 
-    <section class="ww-section" aria-labelledby="ww-commands">
-      <div class="section-heading"><span class="section-kicker">COMMAND</span><h2 id="ww-commands">Perintah Werewolf</h2><p>Prefix bawaan bot adalah <code>!</code> dan dapat diubah melalui variabel konfigurasi `BOT_PREFIX`. Aksi tertentu hanya tersedia melalui DM.</p></div>
-      <div class="command-list">
-        <div class="command-row"><code>!ww</code><div><strong>Buat lobby</strong><p>Memulai lobby permainan Werewolf di channel.</p></div><span class="command-tag">Moderator</span></div>
-        <div class="command-row"><code>!wwroleinfo</code><div><strong>Lihat daftar role</strong><p>Menampilkan role satu per satu beserta kategori dan deskripsinya.</p></div><span class="command-tag">Info</span></div>
-        <div class="command-row"><code>!db</code><div><strong>Dashboard role</strong><p>Menampilkan daftar role dari database dan status checklist implementasinya. Alias: <code>!dash</code>, <code>!roles</code>.</p></div><span class="command-tag">Info</span></div>
-        <div class="command-row"><code>!gunfire</code><div><strong>Aksi Gunner</strong><p>Memilih target tembakan saat masih hidup dan memiliki peluru. Hanya melalui DM. Alias: <code>!tembak</code>.</p></div><span class="command-tag">Role khusus</span></div>
-        <div class="command-row"><code>!shoot</code><div><strong>Aksi Hunter</strong><p>Memilih target tembakan setelah Hunter tereliminasi. Hanya melalui DM.</p></div><span class="command-tag">Role khusus</span></div>
-        <div class="command-row"><code>!wizzard</code><div><strong>Kemampuan Wizzard</strong><p>Memilih pemain untuk ditebak role-nya pada fase siang. Hanya melalui DM. Alias: <code>!tebak</code>.</p></div><span class="command-tag">Role khusus</span></div>
-        <div class="command-row"><code>!killplayer</code><div><strong>Eliminasi pemain</strong><p>Moderator menghapus pemain hidup dari permainan. Gunakan dengan mention atau ID pemain.</p></div><span class="command-tag">Moderator</span></div>
-        <div class="command-row"><code>!stopgame</code><div><strong>Hentikan game</strong><p>Menghentikan game aktif dan membersihkan data game. Alias: <code>!forceend</code>, <code>!hentikan</code>.</p></div><span class="command-tag">Moderator</span></div>
-        <div class="command-row"><code>!gamewin</code><div><strong>Akhiri permainan</strong><p>Moderator menghentikan permainan dan dapat menentukan label pemenang. Alias: <code>!endgame</code>, <code>!stopgame</code>.</p></div><span class="command-tag">Moderator</span></div>
-      </div>
-      <p class="command-note">Daftar ini merangkum perintah yang tersedia pada source bot saat halaman diperbarui. Tidak semua command dapat digunakan oleh seluruh pemain.</p>
-    </section>
-
     <section class="ww-section ww-note" aria-label="Catatan permainan">
       <div><span class="section-kicker">CATATAN</span><h2>Siapkan DM sebelum bermain.</h2></div>
       <p>Beberapa informasi role dan aksi permainan dikirim melalui pesan pribadi Discord. Pastikan DM dari anggota server diizinkan agar fitur tersebut dapat digunakan dengan lancar.</p>
@@ -194,5 +198,66 @@
     <a class="cta" href="https://discord.gg/pyVeaME9tj" target="_blank" rel="noopener noreferrer">Kunjungi Komunitas ↗</a>
   </main>
   <footer><div class="container">© 2026 LUNOX.ID. Terhubung. Bermain. Bersama.</div></footer>
+
+  <script>
+    (() => {
+      const status = document.getElementById("werewolf-role-status");
+      const groups = document.getElementById("werewolf-role-groups");
+      const escapeHTML = (value) => String(value ?? "").replace(/[&<>"']/g, (char) => ({
+        "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+      })[char]);
+
+      async function loadRoles() {
+        try {
+          const response = await fetch("../api/werewolf-roles", { headers: { Accept: "application/json" } });
+          if (!response.ok) throw new Error("Role belum dapat dimuat. Coba lagi beberapa saat.");
+          const payload = await response.json();
+          const roles = Array.isArray(payload.roles) ? payload.roles : [];
+          if (!roles.length) {
+            status.textContent = "Belum ada role yang tersimpan di database.";
+            return;
+          }
+
+          const categories = new Map();
+          roles.forEach((role) => {
+            const category = role.category || "Lainnya";
+            if (!categories.has(category)) categories.set(category, []);
+            categories.get(category).push(role);
+          });
+
+          groups.innerHTML = Array.from(categories.entries()).map(([category, items]) => {
+            const cards = items.map((role) => {
+              const image = role.imageUrl
+                ? '<img src="' + escapeHTML(role.imageUrl) + '" alt="Ilustrasi role ' + escapeHTML(role.name) + '" loading="lazy">'
+                : "";
+              const emoji = escapeHTML(role.emoji || "🃏");
+              return '<article class="role-card">' +
+                '<div class="role-art' + (image ? "" : " is-empty") + '">' +
+                  image + '<div class="role-art-fallback" aria-hidden="true">' + emoji + '</div>' +
+                '</div>' +
+                '<div class="role-copy">' +
+                  '<h4 class="role-name">' + emoji + ' ' + escapeHTML(role.name) + '</h4>' +
+                  '<div class="role-category-label">' + escapeHTML(category) + '</div>' +
+                  '<p class="role-description">' + escapeHTML(role.description || "Belum ada deskripsi.") + '</p>' +
+                '</div></article>';
+            }).join("");
+            return '<section class="role-category"><h3>' + escapeHTML(category) +
+              '<span class="role-category-count">' + items.length + ' role</span></h3>' +
+              '<div class="role-grid">' + cards + '</div></section>';
+          }).join("");
+
+          groups.querySelectorAll(".role-art img").forEach((img) => {
+            img.addEventListener("error", () => img.parentElement.classList.add("is-empty"), { once: true });
+          });
+          status.hidden = true;
+        } catch (error) {
+          status.classList.add("role-error");
+          status.textContent = error.message || "Gagal memuat role dari database.";
+        }
+      }
+      loadRoles();
+    })();
+  </script>
+
 </body>
 </html>
