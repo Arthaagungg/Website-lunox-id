@@ -60,13 +60,12 @@ module.exports = async function handler(req, res) {
     const roles = documents.map((role) => {
       const roleId = String(role.roleId || "");
       const safeRoleId = /^[a-zA-Z0-9_-]+$/.test(roleId) ? roleId : "";
-      const extension = ["king", "politician"].includes(safeRoleId) ? "png" : "jpg";
+      // Serve private Werewolf repository artwork through the authenticated image proxy.
+      // The proxy checks the database imageName first, then tries PNG/JPG/WebP fallbacks.
       const imageUrl = safeRoleId
-        ? "/assets/werewolf-roles/" + encodeURIComponent(`card-${safeRoleId}.${extension}`)
-        : null;
-      const imageFallbackUrl = safeRoleId
         ? "/api/werewolf-role-image?roleId=" + encodeURIComponent(safeRoleId)
         : null;
+      const imageFallbackUrl = null;
 
       const rawEmoji = String(role.emoji || "");
       const customEmoji = rawEmoji.match(/^<(a?):[A-Za-z0-9_]+:(\d+)>$/);
