@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#ffffff">
-  <meta name="description" content="Bot utilitas untuk komunitas Discord — bagian dari ekosistem komunitas LUNOX.ID.">
+  <meta name="theme-color" content="#11100d">
+  <meta name="description" content="Kenali bot LUNOX.ID, bot utilitas komunitas Discord, dan jelajahi dokumentasi command yang tersinkron otomatis.">
   <link rel="icon" type="image/svg+xml" href="../assets/lunox-mark.svg">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://website-lunox-id.vercel.app/bots/lunox-id.html">
@@ -17,7 +17,7 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Bot LUNOX.ID — Server Utility">
   <meta name="twitter:description" content="Dokumentasi command dan informasi bot LUNOX.ID.">
-  <title>LUNOX.ID — LUNOX.ID</title>
+  <title>LUNOX.ID Bot — Server Utility | LUNOX.ID</title>
   <style>
     :root{--black:#171717;--gray:#777;--light:#f5f5f3;--line:#e9e9e7}
     *{box-sizing:border-box;margin:0;padding:0}
@@ -246,7 +246,101 @@
     .bot-arrow{color:#b69a58!important}
     @media(max-width:760px){.nav-links{background:#191711!important;border-color:#403724!important}}
 
-</style>
+
+    /* Refined dark-fantasy bot profile */
+    :root{--gold-soft:#8f7543;--gold-line:#5a492b;--panel:#191711;--panel-raised:#211c13}
+    body{background:
+      radial-gradient(ellipse at 82% 8%,rgba(177,143,73,.10),transparent 34rem),
+      radial-gradient(ellipse at 8% 48%,rgba(177,143,73,.045),transparent 28rem),
+      #11100d!important}
+    .container{width:min(1120px,calc(100% - 64px))}
+    nav{min-height:82px!important;border-bottom:1px solid var(--line);position:relative}
+    .brand{font-size:16px;letter-spacing:.1em;color:#f0e5cc!important}
+    .brand img{width:38px;height:38px;border:1px solid var(--gold-line);border-radius:10px;padding:3px;background:#1b1811}
+    .back{color:#c7b78e!important;font-size:12px;letter-spacing:.03em;transition:color .2s}
+    .back:hover{color:#e4c77f!important}
+    main{padding:76px 0 105px!important}
+    .eyebrow,.commands-kicker{color:#c5a866!important;font-size:10px;letter-spacing:.23em}
+    .profile{position:relative;isolation:isolate;overflow:hidden;min-height:240px;margin:24px 0 30px!important;padding:40px 44px;gap:30px!important;border:1px solid #59482b;background:linear-gradient(115deg,rgba(39,32,20,.98),rgba(23,21,15,.97) 65%,rgba(34,27,16,.94));}
+    .profile:before{content:"";position:absolute;z-index:-1;width:340px;height:340px;right:-95px;top:-160px;border:1px solid #b99a592d;border-radius:50%;box-shadow:0 0 0 18px #b99a5908,0 0 0 38px #b99a5906,0 0 0 64px #b99a5905}
+    .profile:after{content:"L";position:absolute;z-index:-1;right:38px;bottom:-105px;font:300 270px/1 Georgia,serif;color:#d4b66b0a;pointer-events:none}
+    .avatar{width:116px;height:116px;border-radius:22px;padding:7px;object-fit:contain;background:#17140e!important;border:1px solid #80683b!important;box-shadow:0 0 35px #b99a5919}
+    h1{font:500 clamp(48px,7vw,78px)/.98 Georgia,"Times New Roman",serif!important;letter-spacing:-.045em!important;color:#f2e7d0!important}
+    .type{margin-top:15px;padding:6px 11px;border:1px solid #79613a!important;background:#211b10!important;color:#d7bd7d!important;font-size:9px;letter-spacing:.18em}
+    .intro{max-width:850px!important;margin:40px 0 16px!important;font:500 clamp(26px,4vw,39px)/1.22 Georgia,"Times New Roman",serif!important;letter-spacing:-.025em!important;color:#eee4d0!important}
+    .description{max-width:760px!important;color:#aaa292!important;font-size:14px!important;line-height:1.9!important}
+    .detail{margin-top:55px!important;padding:26px 28px!important;grid-template-columns:175px minmax(0,1fr)!important;gap:30px!important;border:1px solid #403724!important;background:linear-gradient(135deg,#191711,#15130f)}
+    .detail-label{color:#c5a866!important;font-size:10px;letter-spacing:.2em}
+    .detail p{color:#b7ae9d!important;font-size:13px;line-height:1.9!important}
+    .commands-section{margin-top:80px!important;padding-top:40px!important;border-top:1px solid #5a492b!important}
+    .commands-title{font:500 clamp(38px,5vw,56px)/1.08 Georgia,"Times New Roman",serif!important;letter-spacing:-.035em!important;color:#f0e5cc!important}
+    .commands-lead{color:#aaa292!important;line-height:1.85}
+    .command-search{height:48px;border-radius:2px!important;background:#171510!important;border:1px solid #51452d!important;color:#eee7d8!important;padding-inline:15px}
+    .command-search::placeholder{color:#817966}
+    .command-filter{border-radius:2px!important;background:#191711!important;border-color:#51452d!important;color:#b9ad92!important;padding:9px 14px;transition:background .18s,border-color .18s,color .18s}
+    .command-filter:hover{border-color:#b69a58!important;color:#e9d8b0!important}
+    .command-filter[aria-pressed="true"]{background:#a7833e!important;border-color:#d2b56c!important;color:#17130b!important}
+    .prefix-status{border:1px solid #403724;border-radius:2px!important;background:#1b1811!important;color:#b7aa8d!important}
+    .prefix-status strong{color:#e4c77f!important}
+    .command-status{color:#a99c7e!important}
+    .command-list{max-width:none!important;border-top:1px solid #5a492b!important}
+    .command-card{border-bottom:1px solid #403724!important}
+    .command-summary{padding:19px 9px!important;transition:background .18s}
+    .command-summary:hover{background:#191711}
+    .command-name{color:#ead9b3!important;font-size:14px!important}
+    .command-short-description{color:#aaa292!important}
+    .command-access{background:#201b12!important;border-color:#5a492b!important;color:#c8b98f!important}
+    .command-chevron{color:#c5a866!important}
+    .command-card[open] .command-summary{background:#1b1811}
+    .command-panel{padding:8px 10px 23px!important;background:#171510}
+    .command-label{color:#b69a58!important}
+    .command-card code{background:#282115!important;color:#e7d6b0!important;border:1px solid #403724}
+    .command-sub{background:#201b12!important;border-color:#403724!important}
+    .command-sub strong{color:#e8d8b7!important}
+    .command-sub p{color:#aaa292!important}
+    .command-empty{background:#191711!important;border-color:#5a492b!important;color:#c8b98f!important}
+    .command-note{color:#928873!important;line-height:1.8}
+    .cta{margin-top:42px!important;min-height:48px;padding:14px 22px!important;background:linear-gradient(135deg,#d8bd7b,#a7833e)!important;color:#17130b!important;border:1px solid #e0c77f;letter-spacing:.06em;font-size:11px!important}
+    .cta:hover{background:#e4ca87!important}
+    footer{margin-top:5px!important;border-color:#403724!important;color:#8f8675!important}
+    @media(max-width:760px){
+      .container{width:calc(100% - 40px)!important}
+      nav{min-height:70px!important}
+      main{padding:54px 0 76px!important}
+      .profile{min-height:0;padding:25px 22px;margin:20px 0 24px!important;gap:17px!important}
+      .avatar{width:76px;height:76px;border-radius:16px;padding:5px}
+      h1{font-size:clamp(36px,10vw,52px)!important;letter-spacing:-.04em!important}
+      .type{margin-top:9px;font-size:8px;padding:5px 8px}
+      .intro{margin-top:30px!important;font-size:28px!important}
+      .description{font-size:13px!important}
+      .detail{grid-template-columns:1fr!important;gap:9px!important;margin-top:36px!important;padding:21px!important}
+      .commands-section{margin-top:62px!important;padding-top:30px!important}
+      .commands-heading{display:block;margin-bottom:22px}
+      .commands-title{font-size:40px!important}
+      .commands-lead{margin-top:11px;font-size:12px}
+      .command-tools{margin-top:21px}
+      .command-search{min-width:100%;width:100%}
+      .command-filters{gap:6px}
+      .command-filter{padding:8px 10px;font-size:10px}
+      .command-summary{padding:15px 4px!important}
+      .command-name{font-size:13px!important}
+      .command-short-description{font-size:11px}
+      .command-summary-side{gap:7px}
+      .command-access{font-size:8px}
+      .command-panel{padding:8px 4px 18px!important}
+      .command-subcommands{grid-template-columns:1fr!important}
+      .cta{width:100%;margin-top:32px!important}
+    }
+    @media(max-width:390px){
+      .container{width:calc(100% - 32px)!important}
+      .profile{padding:20px 16px}
+      .avatar{width:64px;height:64px}
+      h1{font-size:34px!important}
+      .command-summary-side .command-access{max-width:88px;white-space:normal;text-align:center}
+    }
+    @media(prefers-reduced-motion:reduce){.profile:before,.command-summary{transition:none!important}}
+
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Lewati ke konten</a>
@@ -260,20 +354,20 @@
       <img class="avatar" src="../assets/bot-lunox.svg" alt="Avatar LUNOX.ID">
       <div><h1>LUNOX.ID</h1><span class="type">Server Utility</span></div>
     </div>
-    <p class="intro">Bot utilitas untuk komunitas Discord.</p>
-    <p class="description">LUNOX.ID hadir untuk membantu kebutuhan operasional server Discord. Bot ini menjadi bagian dari ekosistem LUNOX.ID dan dirancang untuk mendukung aktivitas komunitas sehari-hari.</p>
+    <p class="intro">Satu pusat kendali untuk menjaga komunitas tetap berjalan.</p>
+    <p class="description">LUNOX.ID adalah bot server utility yang membantu mengelola kebutuhan komunitas Discord melalui beragam command. Temukan fungsi yang tersedia, pelajari cara penggunaannya, dan gunakan dokumentasi ini sebagai panduan saat beraktivitas di server.</p>
     <div class="detail">
       <div class="detail-label">TENTANG BOT</div>
-      <p>LUNOX.ID hadir untuk membantu kebutuhan operasional server Discord. Bot ini menjadi bagian dari ekosistem LUNOX.ID dan dirancang untuk mendukung aktivitas komunitas sehari-hari. Untuk informasi lebih lanjut mengenai fitur dan penggunaan, kunjungi komunitas Discord LUNOX.ID.</p>
+      <p>LUNOX.ID merupakan bagian dari ekosistem komunitas LUNOX.ID. Bot ini menyediakan berbagai command untuk membantu kebutuhan server dan aktivitas anggotanya. Dokumentasi di halaman ini menampilkan command yang tersedia untuk Member, Staff, serta Booster &amp; Support. Informasi command dan prefix mengikuti konfigurasi yang digunakan server, sehingga panduan tetap relevan ketika ada pembaruan. Jika membutuhkan bantuan lebih lanjut, kunjungi komunitas Discord LUNOX.ID.</p>
     </div>
 
     <section class="commands-section" id="commands" aria-labelledby="commands-title">
       <div class="commands-heading">
         <div>
           <div class="commands-kicker">DOKUMENTASI / COMMAND</div>
-          <h2 class="commands-title" id="commands-title">Jelajahi command.</h2>
+          <h2 class="commands-title" id="commands-title">The Command Archive.</h2>
         </div>
-        <p class="commands-lead">Semua panduan penggunaan LUNOX.ID ada di sini. Cari command atau pilih kategori untuk menemukan fitur yang kamu butuhkan.</p>
+        <p class="commands-lead">Jelajahi kemampuan bot melalui dokumentasi command. Cari berdasarkan nama atau fungsi, lalu buka setiap item untuk melihat cara penggunaan dan subcommand yang tersedia.</p>
       </div>
       <div class="command-tools">
         <input class="command-search" id="command-search" type="search" placeholder="Cari nama atau fungsi command..." aria-label="Cari command">
@@ -287,7 +381,7 @@
       <p class="prefix-status" id="prefix-status" aria-live="polite">Prefix server: <strong>Memuat...</strong></p>
       <p class="command-status" id="command-status" aria-live="polite">Memuat daftar command...</p>
       <div class="command-list" id="command-list"></div>
-      <p class="command-note">Prefix di atas mengikuti pengaturan server utama LUNOX.ID dan diperbarui otomatis dari MongoDB. Command Developer tidak ditampilkan di dokumentasi publik.</p>
+      <p class="command-note">Prefix mengikuti pengaturan server dan diperbarui otomatis. Dokumentasi ini hanya menampilkan command publik sesuai kategori akses; command Developer tidak dipublikasikan.</p>
     </section>
 
     <a class="cta" href="https://discord.gg/pyVeaME9tj" target="_blank" rel="noopener noreferrer">Kunjungi Komunitas ↗</a>
