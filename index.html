@@ -49,9 +49,12 @@
     .logo img { width:36px; height:36px; display:block; border-radius:9px; }
     .footer-brand { display:flex; align-items:center; gap:9px; color:var(--black); }
     .footer-brand img { width:30px; height:30px; border-radius:8px; }
-    .nav-links { display: flex; gap: 34px; color: var(--gray); font-size: 13px; }
+    .nav-links { display: flex; align-items: center; gap: 28px; color: var(--gray); font-size: 13px; }
     .nav-links a { transition: color .2s; }
-    .nav-links a:hover { color: var(--black); }
+    .nav-links a:hover, .nav-links a[aria-current="page"] { color: var(--black); }
+    .nav-links .nav-discord { color: var(--black); font-weight: 700; }
+    .menu-toggle { display: none; border: 1px solid var(--line); background: var(--white); color: var(--black); border-radius: 4px; padding: 9px 12px; font: inherit; font-size: 12px; font-weight: 700; cursor: pointer; }
+    .menu-toggle:focus-visible { outline: 2px solid var(--black); outline-offset: 4px; }
     .hero {
       min-height: 650px; display: flex; flex-direction: column;
       justify-content: center; padding: 100px 0;
@@ -131,8 +134,14 @@
     }
     .footer-logo { color: var(--black); font-size: 17px; font-weight: 800; letter-spacing: -1px; }
     @media (max-width: 760px) {
-      nav { height: 70px; }
-      .nav-links { gap: 16px; font-size: 11px; }
+      nav { height: 70px; position: relative; }
+      .menu-toggle { display: inline-flex; align-items: center; gap: 8px; }
+      .menu-toggle-icon { display: inline-grid; gap: 4px; }
+      .menu-toggle-icon span { display: block; width: 14px; height: 1.5px; background: currentColor; }
+      .nav-links { display: none; position: absolute; z-index: 5; top: calc(100% + 1px); left: 0; right: 0; padding: 14px 18px 18px; background: var(--white); border: 1px solid var(--line); border-top: 0; box-shadow: 0 12px 24px rgba(0,0,0,.06); flex-direction: column; align-items: stretch; gap: 0; font-size: 13px; }
+      .nav-links.is-open { display: flex; }
+      .nav-links a { padding: 11px 0; border-bottom: 1px solid var(--line); }
+      .nav-links a:last-child { border-bottom: 0; }
       .hero { min-height: 570px; padding: 85px 0; }
       h1 { letter-spacing: -4px; font-size: clamp(48px, 12vw, 76px); }
       .eyebrow { letter-spacing: 2px; font-size: 10px; }
@@ -153,7 +162,7 @@
       .container { width: 90%; }
       .logo { gap: 7px; font-size: 19px; }
       .logo img { width: 32px; height: 32px; }
-      .nav-links { gap: 9px; font-size: 10px; }
+      .nav-links { font-size: 13px; }
       h1 { letter-spacing: -3px; }
       .bot-card { gap: 11px; }
       .bot-name { font-size: 17px; }
@@ -172,10 +181,15 @@
   <a class="skip-link" href="#main-content">Lewati ke konten</a>
   <nav class="container" aria-label="Navigasi utama">
     <a href="#top" class="logo" aria-label="LUNOX.ID — kembali ke atas"><img src="assets/lunox-mark.svg" alt="">LUNOX.ID</a>
-    <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="#bots">Our Bots</a>
-      <a href="#join">Community</a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-menu" aria-label="Buka menu navigasi">
+      <span class="menu-toggle-icon" aria-hidden="true"><span></span><span></span></span>
+      <span class="menu-toggle-label">Menu</span>
+    </button>
+    <div class="nav-links" id="primary-menu">
+      <a href="#top" aria-current="page">Home</a>
+      <a href="#bots">Bots</a>
+      <a href="commands.html">Commands</a>
+      <a class="nav-discord" href="https://discord.gg/pyVeaME9tj" target="_blank" rel="noopener noreferrer">Discord ↗</a>
     </div>
   </nav>
 
@@ -297,5 +311,35 @@
       <div>Terhubung. Bermain. Bersama.</div>
     </div>
   </footer>
+  <script>
+    (() => {
+      const toggle = document.querySelector(".menu-toggle");
+      const menu = document.getElementById("primary-menu");
+      const label = document.querySelector(".menu-toggle-label");
+      if (!toggle || !menu) return;
+      const closeMenu = () => {
+        menu.classList.remove("is-open");
+        toggle.setAttribute("aria-expanded", "false");
+        toggle.setAttribute("aria-label", "Buka menu navigasi");
+        if (label) label.textContent = "Menu";
+      };
+      toggle.addEventListener("click", () => {
+        const isOpen = toggle.getAttribute("aria-expanded") !== "true";
+        toggle.setAttribute("aria-expanded", String(isOpen));
+        toggle.setAttribute("aria-label", isOpen ? "Tutup menu navigasi" : "Buka menu navigasi");
+        menu.classList.toggle("is-open", isOpen);
+        if (label) label.textContent = isOpen ? "Tutup" : "Menu";
+      });
+      menu.addEventListener("click", event => {
+        if (event.target.closest("a")) closeMenu();
+      });
+      document.addEventListener("keydown", event => {
+        if (event.key === "Escape") { closeMenu(); toggle.focus(); }
+      });
+      window.addEventListener("resize", () => {
+        if (window.innerWidth > 760) closeMenu();
+      });
+    })();
+  </script>
 </body>
 </html>
