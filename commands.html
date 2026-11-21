@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#ffffff"><meta name="description" content="Dokumentasi command bot LUNOX.ID, termasuk command member, staff, dan booster.">
+<link rel="icon" type="image/svg+xml" href="assets/lunox-mark.svg"><title>Command — LUNOX.ID</title>
+<style>
+:root{--black:#171717;--gray:#777;--muted:#999;--light:#f5f5f3;--line:#e9e9e7}
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:Arial,Helvetica,sans-serif;color:var(--black);line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--black);outline-offset:4px}
+.container{width:min(1000px,88%);margin:auto}nav{height:82px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:10px;font-size:20px;font-weight:800;letter-spacing:-1px}.brand img{width:34px;height:34px;border-radius:8px}
+.back{font-size:13px;color:var(--gray)}main{padding:82px 0 110px}.eyebrow{font-size:11px;letter-spacing:2px;font-weight:700;color:var(--muted)}
+h1{font-size:clamp(42px,8vw,68px);line-height:1.05;letter-spacing:-3px;margin:18px 0}
+.lead{max-width:650px;color:var(--gray);font-size:17px}.toolbar{display:flex;gap:12px;margin:42px 0 18px;flex-wrap:wrap}
+input,select{height:46px;border:1px solid var(--line);border-radius:4px;padding:0 13px;background:white;color:var(--black);font:inherit;font-size:13px}
+input{flex:1;min-width:220px}.filters{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 30px}
+.filter{border:1px solid var(--line);background:white;padding:9px 13px;border-radius:3px;font-size:12px;cursor:pointer}.filter[aria-pressed="true"]{background:var(--black);color:white;border-color:var(--black)}
+.meta{font-size:11px;color:var(--muted);margin-bottom:18px}.list{display:grid;gap:12px}
+.command{border:1px solid var(--line);border-radius:5px;padding:22px 24px;background:white}
+.command-top{display:flex;justify-content:space-between;gap:15px;align-items:flex-start}.command h2{font-size:20px;letter-spacing:-.5px}
+.access{font-size:10px;letter-spacing:.6px;text-transform:uppercase;color:var(--gray);border:1px solid var(--line);padding:5px 8px;border-radius:3px;white-space:nowrap}
+.description{color:var(--gray);font-size:14px;margin:9px 0 15px}.label{font-size:10px;letter-spacing:1.5px;color:var(--muted);font-weight:700;margin:15px 0 5px}
+code{display:inline-block;background:var(--light);padding:5px 8px;border-radius:3px;font:12px/1.6 Consolas,monospace;overflow-wrap:anywhere}
+.aliases,.subcommands{font-size:13px;color:var(--gray)}.subcommands{display:grid;gap:8px;margin-top:7px}
+.sub{padding:10px 12px;background:#fafaf9;border-radius:3px}.sub strong{color:var(--black);font-size:13px}.sub p{font-size:12px;margin:2px 0 5px}
+.empty{padding:35px 20px;text-align:center;color:var(--gray);border:1px dashed var(--line);border-radius:5px}
+.note{margin-top:32px;padding-top:20px;border-top:1px solid var(--line);font-size:12px;color:var(--gray)}
+footer{padding:30px 0;border-top:1px solid var(--line);color:var(--muted);font-size:12px}
+@media(max-width:600px){nav{height:70px}main{padding:62px 0 80px}h1{letter-spacing:-2px}.command{padding:18px}.command-top{flex-direction:column;gap:8px}.access{white-space:normal}}
+</style></head>
+<body>
+<nav class="container"><a class="brand" href="index.html"><img src="assets/lunox-mark.svg" alt="">LUNOX.ID</a><a class="back" href="bots/lunox-id.html">← Kembali ke bot</a></nav>
+<main class="container">
+<div class="eyebrow">DOKUMENTASI / COMMAND</div><h1>Command<br>Reference.</h1>
+<p class="lead">Panduan penggunaan command bot LUNOX.ID. Informasi command disinkronkan otomatis dari repositori bot.</p>
+<div class="toolbar"><input id="search" type="search" placeholder="Cari nama atau fungsi command..." aria-label="Cari command"><select id="category" aria-label="Filter kategori"><option value="all">Semua kategori</option><option value="member">Member</option><option value="staff">Staff</option><option value="booster">Booster & Support</option></select></div>
+<div class="filters" aria-label="Filter cepat"><button class="filter" data-filter="all" aria-pressed="true">Semua</button><button class="filter" data-filter="member" aria-pressed="false">Member</button><button class="filter" data-filter="staff" aria-pressed="false">Staff</button><button class="filter" data-filter="booster" aria-pressed="false">Booster & Support</button></div>
+<p class="meta" id="status" aria-live="polite">Memuat dokumentasi command...</p><section class="list" id="commands"></section>
+<p class="note">Gunakan prefix yang aktif di server Discord. Contoh format di bawah memakai prefix <code>!!</code>; prefix server dapat berbeda. Command Developer tidak ditampilkan di halaman publik.</p>
+</main>
+<footer><div class="container">© 2026 LUNOX.ID. Terhubung. Bermain. Bersama.</div></footer>
+<script>
+const list=document.getElementById("commands"),search=document.getElementById("search"),category=document.getElementById("category"),status=document.getElementById("status");
+let data=[],active="all";
+const esc=value=>String(value??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+function render(){
+ const q=search.value.trim().toLowerCase(),cat=category.value==="all"?active:category.value;
+ const rows=data.filter(c=>(cat==="all"||c.category===cat)&&[c.name,c.description,...(c.aliases||[])].join(" ").toLowerCase().includes(q));
+ status.textContent=rows.length+" command ditampilkan";
+ list.innerHTML=rows.length?rows.map(c=>'<article class="command"><div class="command-top"><h2>'+esc(c.name)+'</h2><span class="access">'+esc(c.access)+'</span></div><p class="description">'+esc(c.description)+'</p><div class="label">CARA PAKAI</div><code>!!'+esc(c.usage||c.name)+'</code>'+(c.aliases?.length?'<div class="label">ALIAS</div><p class="aliases">'+c.aliases.map(x=>'<code>!!'+esc(x)+'</code>').join(" ")+'</p>':'')+(c.subcommands?.length?'<div class="label">SUBCOMMAND</div><div class="subcommands">'+c.subcommands.map(s=>'<div class="sub"><strong>'+esc(s.name)+'</strong><p>'+esc(s.description||"")+'</p><code>!!'+esc(c.name)+' '+esc(s.name)+(s.usage?.trim()?" "+esc(s.usage.trim()):"")+'</code></div>').join("")+'</div>':'')+'</article>').join(""):'<div class="empty">Command tidak ditemukan.</div>';
+}
+search.addEventListener("input",render);category.addEventListener("change",()=>{active="all";document.querySelectorAll(".filter").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.filter==="all")));render()});
+document.querySelectorAll(".filter").forEach(b=>b.addEventListener("click",()=>{active=b.dataset.filter;category.value="all";document.querySelectorAll(".filter").forEach(x=>x.setAttribute("aria-pressed",String(x===b)));render()}));
+fetch("data/commands.json").then(r=>{if(!r.ok)throw Error("Data tidak tersedia");return r.json()}).then(json=>{data=Array.isArray(json.commands)?json.commands:[];status.textContent="Dokumentasi diperbarui otomatis dari repositori bot.";render()}).catch(()=>{status.textContent="Dokumentasi command belum dapat dimuat. Coba muat ulang halaman.";list.innerHTML='<div class="empty">Data command sedang tidak tersedia.</div>'});
+</script></body></html>
