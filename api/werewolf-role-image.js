@@ -79,7 +79,7 @@ module.exports = async function handler(req, res) {
       if (!response.ok) throw new Error("GitHub image fetch failed: " + response.status);
 
       const contentType = response.headers.get("content-type") || "application/octet-stream";
-      if (!/^image\\/(png|jpeg|webp|gif)$/i.test(contentType)) {
+      if (!/^image\/(png|jpeg|webp|gif)$/i.test(contentType)) {
         throw new Error("Unsupported role image content type");
       }
 
