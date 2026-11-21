@@ -49,7 +49,6 @@
     .logo img { width:36px; height:36px; display:block; border-radius:9px; }
     .footer-brand { display:flex; align-items:center; gap:9px; color:var(--black); }
     .footer-brand img { width:30px; height:30px; border-radius:8px; }
-
     .nav-links { display: flex; gap: 34px; color: var(--gray); font-size: 13px; }
     .nav-links a { transition: color .2s; }
     .nav-links a:hover { color: var(--black); }
@@ -95,20 +94,21 @@
     .about-details p { max-width: 440px; color: var(--gray); font-size: 14px; }
     .bot-list { margin-top: 65px; border-top: 1px solid var(--line); }
     .bot-card {
-      display: grid; grid-template-columns: 90px 1fr 1fr 35px;
-      align-items: center; gap: 25px; padding: 32px 0;
-      border-bottom: 1px solid var(--line); transition: padding .2s;
+      display: grid; grid-template-columns: 90px minmax(180px, .8fr) 1.2fr 35px;
+      align-items: center; gap: 25px; padding: 34px 0;
+      border-bottom: 1px solid var(--line); transition: padding .2s, background .2s;
     }
-    .bot-card:hover { padding-left: 12px; padding-right: 12px; }
+    .bot-card:hover { padding-left: 14px; padding-right: 14px; background: #fcfcfb; }
     .bot-icon {
-      width: 62px; height: 62px; display: block; object-fit: cover;
+      width: 66px; height: 66px; display: block; object-fit: cover;
       background: var(--light); border: 1px solid var(--line);
-      border-radius: 12px;
+      border-radius: 14px;
     }
-    .bot-name { font-size: 20px; font-weight: 700; letter-spacing: -.7px; }
-    .bot-type { margin-top: 5px; color: #999; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; }
-    .bot-description { max-width: 370px; color: var(--gray); font-size: 13px; }
-    .bot-arrow { font-size: 22px; text-align: right; }
+    .bot-index { color: #aaa; font-size: 10px; font-weight: 700; letter-spacing: 1.8px; margin-bottom: 5px; }
+    .bot-name { font-size: 20px; font-weight: 700; letter-spacing: -.7px; line-height: 1.3; }
+    .bot-type { display: inline-block; margin-top: 9px; padding: 4px 9px; border: 1px solid var(--line); border-radius: 3px; color: #777; font-size: 10px; letter-spacing: .7px; text-transform: uppercase; }
+    .bot-description { max-width: 390px; color: var(--gray); font-size: 13px; }
+    .bot-arrow { font-size: 22px; text-align: right; color: #999; }
     .join-section { padding: 90px 0; background: var(--light); border: none; }
     .join-content { display: flex; justify-content: space-between; align-items: flex-end; gap: 35px; }
     .join-content h2 { max-width: 650px; }
@@ -226,8 +226,8 @@
           <div>
             <h2>Three bots. One ecosystem.</h2>
             <p class="section-description">
-              Kenali bot yang menjadi bagian dari ekosistem LUNOX.ID.
-              Masing-masing hadir dengan fungsi dan pengalaman yang berbeda.
+              Tiga bot dengan peran berbeda yang melengkapi aktivitas komunitas.
+              Kenali fungsi utama masing-masing di ekosistem LUNOX.ID.
             </p>
           </div>
         </div>
@@ -235,29 +235,32 @@
           <article class="bot-card">
             <img class="bot-icon" src="assets/bot-lunox.svg" alt="Avatar bot LUNOX.ID">
             <div>
+              <div class="bot-index">BOT 01</div>
               <div class="bot-name">LUNOX.ID</div>
               <div class="bot-type">Server Utility</div>
             </div>
-            <p class="bot-description">Berbagai fitur utilitas untuk mendukung kebutuhan server Discord.</p>
-            <div class="bot-arrow">↗</div>
+            <p class="bot-description">Bot utilitas yang hadir untuk mendukung kebutuhan dan aktivitas server Discord LUNOX.ID.</p>
+            <div class="bot-arrow" aria-hidden="true">↗</div>
           </article>
           <article class="bot-card">
             <img class="bot-icon" src="assets/bot-lv.svg" alt="Avatar bot LV">
             <div>
+              <div class="bot-index">BOT 02</div>
               <div class="bot-name">LV</div>
               <div class="bot-type">Temporary Voice Room</div>
             </div>
-            <p class="bot-description">Membuat ruang suara sementara untuk berkumpul dan berbicara bersama.</p>
-            <div class="bot-arrow">↗</div>
+            <p class="bot-description">Bot ruang suara sementara. Buat tempat untuk berkumpul dan berbicara bersama tanpa memenuhi daftar voice channel permanen.</p>
+            <div class="bot-arrow" aria-hidden="true">↗</div>
           </article>
           <article class="bot-card">
             <img class="bot-icon" src="assets/bot-werewolf.svg" alt="Avatar bot Werewolf X Lunox">
             <div>
+              <div class="bot-index">BOT 03</div>
               <div class="bot-name">Werewolf X Lunox</div>
               <div class="bot-type">Werewolf Game</div>
             </div>
-            <p class="bot-description">Pengalaman bermain Werewolf bersama teman-teman di Discord.</p>
-            <div class="bot-arrow">↗</div>
+            <p class="bot-description">Bot permainan Werewolf untuk mengajak anggota berkumpul, menyusun strategi, dan mencari tahu siapa yang bisa dipercaya.</p>
+            <div class="bot-arrow" aria-hidden="true">↗</div>
           </article>
         </div>
       </div>
