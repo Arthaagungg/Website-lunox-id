@@ -93,7 +93,8 @@
     .footer-brand img{width:29px;height:29px;border-radius:7px}
     @media(max-width:850px){.hero{grid-template-columns:1fr .8fr;gap:10px;min-height:590px}.sigil{width:min(330px,100%)}.about-grid{margin-left:0}.bot-grid{gap:11px}.bot-card{padding:21px}.join-panel{padding:48px}}
     @media(max-width:680px){
-      .container{width:min(100% - 40px,var(--max))}
+      html,body{width:100%;max-width:100%;overflow-x:hidden}
+      .container{width:calc(100% - 40px);max-width:var(--max);margin-left:auto;margin-right:auto}
       .site-nav{height:72px}
       .brand{font-size:13px;gap:9px}.brand img{width:34px;height:34px}
       .menu-toggle{display:flex;align-items:center;gap:8px;font-size:11px;letter-spacing:.08em;text-transform:uppercase}
@@ -102,12 +103,12 @@
       .nav-links a{padding:13px 2px;border-bottom:1px solid var(--line)}
       .nav-links .nav-join{margin-top:12px;text-align:center;border:1px solid #79633a}
       .hero{display:flex;flex-direction:column;align-items:stretch;min-height:auto;padding:78px 0 60px;gap:30px;min-width:0}
-      .hero-content,.hero-art{width:100%;min-width:0}
-      .hero > *, .section-head > *, .bot-card, .about-card, .join-panel > *{min-width:0}
+      .hero-content,.hero-art{display:block;width:100%;max-width:100%;min-width:0}
+      .hero > *, .section-head > *, .bot-card, .about-card, .join-panel > *{min-width:0;max-width:100%}
       .eyebrow,.kicker{flex-wrap:wrap;letter-spacing:.16em}
       h1{max-width:100%;overflow-wrap:break-word}
-      .hero:before{width:390px;height:390px;right:-210px;top:230px}
-      h1{font-size:clamp(53px,14vw,76px);margin:20px 0;max-width:560px}
+      .hero:before{width:min(390px,100vw);height:min(390px,100vw);right:-120px;top:230px}
+      h1{display:block;width:100%;max-width:100%;font-size:clamp(42px,11.5vw,64px);margin:20px 0;overflow-wrap:anywhere}
       .hero-copy{font-size:14px;line-height:1.85}
       .hero-actions{margin-top:25px;gap:18px}
       .button-primary{padding:14px 17px}
