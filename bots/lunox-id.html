@@ -61,6 +61,12 @@
 
 
     /* Desktop layout refinement */
+    .command-card--wide{grid-column:1/-1}
+    .command-card--wide .command-subcommands{grid-template-columns:repeat(3,minmax(0,1fr));align-items:stretch}
+    .command-card--wide .command-sub{min-width:0}
+    @media(max-width:900px) and (min-width:651px){
+      .command-card--wide .command-subcommands{grid-template-columns:repeat(2,minmax(0,1fr))}
+    }
     @media(min-width:900px){
       .container{width:min(1080px,86%)}
       main{padding-top:88px}
@@ -146,7 +152,7 @@
         const q=search.value.trim().toLowerCase();
         const rows=commands.filter(c=>(active==="all"||c.category===active)&&[c.name,c.description,...(c.aliases||[])].join(" ").toLowerCase().includes(q));
         status.textContent=rows.length+" command ditampilkan";
-        list.innerHTML=rows.length?rows.map(c=>'<article class="command-card"><div class="command-card-top"><h3>'+esc(c.name)+'</h3><span class="command-access">'+esc(c.access)+'</span></div><p class="command-description">'+esc(c.description)+'</p><div class="command-label">CARA PAKAI</div><code>!!'+esc(c.usage||c.name)+'</code>'+(c.aliases?.length?'<div class="command-label">ALIAS</div><div class="command-aliases">'+c.aliases.map(x=>'<code>!!'+esc(x)+'</code>').join("")+'</div>':'')+(c.subcommands?.length?'<div class="command-label">SUBCOMMAND</div><div class="command-subcommands">'+c.subcommands.map(s=>'<div class="command-sub"><strong>'+esc(s.name)+'</strong><p>'+esc(s.description||"")+'</p><code>!!'+esc(c.name)+' '+esc(s.name)+(s.usage?.trim()?" "+esc(s.usage.trim()):"")+'</code></div>').join("")+'</div>':'')+'</article>').join(""):'<div class="command-empty">Command tidak ditemukan. Coba kata kunci lain.</div>';
+        list.innerHTML=rows.length?rows.map(c=>'<article class="command-card'+(c.subcommands?.length>3?' command-card--wide':'')+'"><div class="command-card-top"><h3>'+esc(c.name)+'</h3><span class="command-access">'+esc(c.access)+'</span></div><p class="command-description">'+esc(c.description)+'</p><div class="command-label">CARA PAKAI</div><code>!!'+esc(c.usage||c.name)+'</code>'+(c.aliases?.length?'<div class="command-label">ALIAS</div><div class="command-aliases">'+c.aliases.map(x=>'<code>!!'+esc(x)+'</code>').join("")+'</div>':'')+(c.subcommands?.length?'<div class="command-label">SUBCOMMAND</div><div class="command-subcommands">'+c.subcommands.map(s=>'<div class="command-sub"><strong>'+esc(s.name)+'</strong><p>'+esc(s.description||"")+'</p><code>!!'+esc(c.name)+' '+esc(s.name)+(s.usage?.trim()?" "+esc(s.usage.trim()):"")+'</code></div>').join("")+'</div>':'')+'</article>').join(""):'<div class="command-empty">Command tidak ditemukan. Coba kata kunci lain.</div>';
       }
       search.addEventListener("input",render);
       document.querySelectorAll(".command-filter").forEach(button=>button.addEventListener("click",()=>{
