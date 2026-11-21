@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="LUNOX.ID — Komunitas Discord untuk berkumpul, bersosialisasi, dan bermain bersama.">
+  <title>LUNOX.ID — Terhubung. Bermain. Bersama.</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #fff;
+      color: #171717;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1100px, 90%);
+      margin: auto;
+    }
+
+    nav {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #eee;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      font-size: 14px;
+      color: #666;
+    }
+
+    .nav-links a:hover {
+      color: #000;
+    }
+
+    .hero {
+      min-height: 580px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 100px 0;
+    }
+
+    .eyebrow {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      color: #888;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      font-size: clamp(48px, 9vw, 88px);
+      line-height: 1.05;
+      letter-spacing: -5px;
+      max-width: 850px;
+    }
+
+    .hero p {
+      max-width: 590px;
+      color: #777;
+      margin-top: 25px;
+      font-size: 17px;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 35px;
+      padding: 13px 24px;
+      background: #171717;
+      color: white;
+      border-radius: 6px;
+      font-size: 14px;
+      transition: .2s;
+    }
+
+    .button:hover {
+      background: #444;
+      transform: translateY(-2px);
+    }
+
+    section {
+      padding: 100px 0;
+      border-top: 1px solid #eee;
+    }
+
+    .section-label {
+      color: #999;
+      font-size: 12px;
+      letter-spacing: 2px;
+      font-weight: bold;
+      margin-bottom: 18px;
+    }
+
+    h2 {
+      font-size: clamp(30px, 5vw, 48px);
+      line-height: 1.2;
+      letter-spacing: -2px;
+      max-width: 700px;
+    }
+
+    .about-text {
+      color: #777;
+      max-width: 700px;
+      margin-top: 25px;
+      font-size: 16px;
+    }
+
+    .bots {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 45px;
+    }
+
+    .bot-card {
+      border: 1px solid #eaeaea;
+      border-radius: 10px;
+      padding: 30px;
+      transition: .2s;
+    }
+
+    .bot-card:hover {
+      border-color: #aaa;
+      transform: translateY(-4px);
+    }
+
+    .bot-number {
+      color: #aaa;
+      font-size: 12px;
+      letter-spacing: 2px;
+    }
+
+    .bot-card h3 {
+      margin-top: 25px;
+      font-size: 22px;
+    }
+
+    .bot-card p {
+      color: #777;
+      font-size: 14px;
+      margin-top: 12px;
+    }
+
+    .join {
+      background: #f8f8f8;
+      border-radius: 12px;
+      padding: 65px;
+      text-align: center;
+    }
+
+    .join h2 {
+      margin: auto;
+    }
+
+    .join p {
+      color: #777;
+      margin-top: 15px;
+    }
+
+    footer {
+      padding: 35px 0;
+      color: #999;
+      font-size: 13px;
+    }
+
+    footer .container {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 700px) {
+      .nav-links {
+        gap: 14px;
+        font-size: 12px;
+      }
+
+      .hero {
+        min-height: 500px;
+      }
+
+      h1 {
+        letter-spacing: -3px;
+      }
+
+      section {
+        padding: 75px 0;
+      }
+
+      .bots {
+        grid-template-columns: 1fr;
+      }
+
+      .join {
+        padding: 45px 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="container">
+    <a href="#" class="logo">LUNOX.ID</a>
+    <div class="nav-links">
+      <a href="#about">Tentang</a>
+      <a href="#bots">Our Bots</a>
+      <a href="#join">Komunitas</a>
+    </div>
+  </nav>
+
+  <main>
+    <header class="hero container">
+      <div class="eyebrow">WELCOME TO OUR COMMUNITY</div>
+      <h1>Lebih dari Sekadar Komunitas.</h1>
+      <p>
+        Tempat untuk terhubung, bertemu teman baru, mengobrol,
+        dan menciptakan pengalaman menyenangkan bersama.
+      </p>
+      <a href="#about" class="button">Jelajahi LUNOX.ID ↗</a>
+    </header>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-label">01 — ABOUT US</div>
+        <h2>Satu tempat untuk berkumpul dan bermain bersama.</h2>
+        <p class="about-text">
+          LUNOX.ID adalah komunitas Discord yang dibangun sebagai
+          tempat untuk berkumpul, bersosialisasi, dan menikmati
+          berbagai aktivitas bersama.
+          <br><br>
+          Di sini, kamu bisa bertemu teman baru, mengobrol,
+          bermain bersama, dan menjadi bagian dari komunitas.
+          <br><br>
+          Didukung oleh ekosistem bot Discord buatan kami sendiri,
+          LUNOX.ID hadir untuk memberikan pengalaman komunitas
+          yang lebih seru dan interaktif.
+        </p>
+      </div>
+    </section>
+
+    <section id="bots">
+      <div class="container">
+        <div class="section-label">02 — OUR BOTS</div>
+        <h2>Kenali ekosistem bot kami.</h2>
+        <p class="about-text">
+          Tiga bot dengan fungsi berbeda, dirancang untuk
+          melengkapi pengalaman di komunitas LUNOX.ID.
+        </p>
+
+        <div class="bots">
+          <article class="bot-card">
+            <div class="bot-number">BOT 01</div>
+            <h3>LUNOX.ID</h3>
+            <p>
+              Server Utility Bot yang membantu menyediakan
+              berbagai fitur dan kebutuhan server Discord.
+            </p>
+          </article>
+
+          <article class="bot-card">
+            <div class="bot-number">BOT 02</div>
+            <h3>LV</h3>
+            <p>
+              Temporary Voice Room Bot untuk membuat
+              dan mengelola ruang suara sementara.
+            </p>
+          </article>
+
+          <article class="bot-card">
+            <div class="bot-number">BOT 03</div>
+            <h3>Werewolf X Lunox</h3>
+            <p>
+              Bot permainan Werewolf yang menghadirkan
+              pengalaman bermain bersama di Discord.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="join">
+      <div class="container">
+        <div class="join">
+          <div class="section-label">03 — JOIN US</div>
+          <h2>Terhubung. Bermain. Bersama.</h2>
+          <p>
+            Temukan teman baru dan jadilah bagian dari
+            komunitas LUNOX.ID.
+          </p>
+          <!-- Tambahkan tautan undangan Discord di sini -->
+          <a href="#" class="button">Bergabung dengan Kami ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <span>© 2026 LUNOX.ID. All rights reserved.</span>
+      <span>Made for the community.</span>
+    </div>
+  </footer>
+
+</body>
+</html>
