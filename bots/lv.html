@@ -29,8 +29,20 @@
     .detail{display:grid;grid-template-columns:180px 1fr;gap:25px;margin-top:85px;padding-top:28px;border-top:1px solid var(--line)}
     .detail-label{font-size:11px;letter-spacing:2px;color:#999;font-weight:700}
     .detail p{max-width:600px;color:var(--gray);font-size:14px}
-    .cta{display:inline-block;margin-top:55px;padding:15px 22px;background:var(--black);color:white;border-radius:4px;font-size:13px;font-weight:700}
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:70px}
+    .feature{padding:22px;border:1px solid var(--line);border-radius:5px;min-height:160px}
+    .feature-number{font-size:10px;color:#999;font-weight:700;letter-spacing:1.5px}
+    .feature h2{font-size:17px;letter-spacing:-.4px;margin:17px 0 8px}
+    .feature p{font-size:13px;color:var(--gray)}
+    .howto{margin-top:75px;padding-top:28px;border-top:1px solid var(--line)}
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:28px}
+    .step-number{font-size:11px;color:#999;font-weight:700;letter-spacing:1.5px}
+    .step h2{font-size:16px;letter-spacing:-.3px;margin:9px 0 5px}
+    .step p{font-size:13px;color:var(--gray)}
+    .note{margin-top:35px;padding:16px 18px;background:var(--light);border-radius:4px;color:var(--gray);font-size:12px}
+    .cta{display:inline-block;margin-top:35px;padding:15px 22px;background:var(--black);color:white;border-radius:4px;font-size:13px;font-weight:700}
     footer{padding:30px 0;border-top:1px solid var(--line);color:#999;font-size:12px}
+    @media(max-width:760px){.features,.steps{grid-template-columns:1fr;gap:12px}.feature{min-height:0}.howto{margin-top:55px}}
     @media(max-width:600px){nav{height:70px}.profile{gap:18px}.avatar{width:78px;height:78px;border-radius:17px}h1{letter-spacing:-2.5px}.detail{grid-template-columns:1fr;gap:12px}main{padding:75px 0 90px}}
     @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
   </style>
@@ -47,11 +59,26 @@
       <div><h1>LV</h1><span class="type">Temporary Voice Room</span></div>
     </div>
     <p class="intro">Ruang suara sementara untuk berkumpul.</p>
-    <p class="description">LV membantu anggota membuat ruang suara sementara saat ingin berkumpul dan berbicara. Dengan begitu, anggota dapat membuat tempat ngobrol sesuai kebutuhan tanpa harus memenuhi daftar channel suara permanen.</p>
+    <p class="description">LV adalah bot Temporary Voice Room di ekosistem LUNOX.ID. Bot ini membantu anggota menyediakan ruang obrolan suara sesuai kebutuhan, sehingga aktivitas berkumpul terasa lebih fleksibel dan daftar channel server tetap tertata.</p>
     <div class="detail">
-      <div class="detail-label">TENTANG BOT</div>
-      <p>LV membantu anggota membuat ruang suara sementara saat ingin berkumpul dan berbicara. Dengan begitu, anggota dapat membuat tempat ngobrol sesuai kebutuhan tanpa harus memenuhi daftar channel suara permanen. Untuk informasi lebih lanjut mengenai fitur dan penggunaan, kunjungi komunitas Discord LUNOX.ID.</p>
+      <div class="detail-label">PERAN LV</div>
+      <p>Ketika anggota ingin mengobrol dalam kelompok, ruang suara sementara menjadi tempat berkumpul tanpa perlu menyiapkan channel permanen untuk setiap kelompok. LV berfokus pada pengalaman voice room yang praktis untuk aktivitas komunitas sehari-hari.</p>
     </div>
+    <section class="features" aria-label="Keunggulan LV">
+      <article class="feature"><div class="feature-number">01 / FLEXIBLE</div><h2>Ruang sesuai kebutuhan</h2><p>Sediakan tempat ngobrol untuk kelompok yang ingin berkumpul tanpa menambah channel permanen.</p></article>
+      <article class="feature"><div class="feature-number">02 / ORGANIZED</div><h2>Server lebih rapi</h2><p>Konsep ruang sementara membantu menjaga daftar channel suara agar tidak dipenuhi ruang yang jarang digunakan.</p></article>
+      <article class="feature"><div class="feature-number">03 / COMMUNITY</div><h2>Lebih mudah berkumpul</h2><p>Anggota punya ruang untuk mengobrol, bermain, atau menghabiskan waktu bersama.</p></article>
+    </section>
+    <section class="howto" aria-labelledby="howto-title">
+      <div class="detail-label">CARA MENGGUNAKAN</div>
+      <h2 id="howto-title" style="font-size:clamp(25px,4vw,38px);letter-spacing:-1.5px;margin-top:10px">Mulai berkumpul dengan LV.</h2>
+      <div class="steps">
+        <article class="step"><div class="step-number">LANGKAH 01</div><h2>Buka server Discord</h2><p>Masuk ke server komunitas LUNOX.ID dan temukan area voice room.</p></article>
+        <article class="step"><div class="step-number">LANGKAH 02</div><h2>Ikuti petunjuk room</h2><p>Gunakan channel atau mekanisme pembuat room yang tersedia di server.</p></article>
+        <article class="step"><div class="step-number">LANGKAH 03</div><h2>Mulai mengobrol</h2><p>Gunakan ruang suara untuk berkumpul dan menikmati waktu bersama anggota lain.</p></article>
+      </div>
+      <p class="note">Nama channel, aturan pembuatan room, dan opsi pengaturan dapat mengikuti konfigurasi yang berlaku di server. Lihat petunjuk terbaru di Discord LUNOX.ID.</p>
+    </section>
     <a class="cta" href="https://discord.gg/pyVeaME9tj" target="_blank" rel="noopener noreferrer">Kunjungi Komunitas ↗</a>
   </main>
   <footer><div class="container">© 2026 LUNOX.ID. Terhubung. Bermain. Bersama.</div></footer>
