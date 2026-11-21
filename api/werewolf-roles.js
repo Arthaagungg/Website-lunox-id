@@ -57,13 +57,19 @@ module.exports = async function handler(req, res) {
       .lean();
 
     const roles = documents.map((role) => {
-      const safeRoleId = /^[a-zA-Z0-9_-]+$/.test(String(role.roleId || "")) ? role.roleId : "";
-      const imageRoot = "https://raw.githubusercontent.com/Arthaagungg/Werewolf/feature/centralized-announcements/src/assets/roles/";
-      const imageUrl = safeRoleId ? imageRoot + encodeURIComponent("card-" + safeRoleId + ".jpg") : null;
-      const imageFallbackUrl = safeRoleId ? imageRoot + encodeURIComponent("card-" + safeRoleId + ".png") : null;
+      const roleId = String(role.roleId || "");
+      const safeRoleId = /^[a-zA-Z0-9_-]+$/.test(roleId) ? roleId : "";
+      const extension = ["king", "politician"].includes(safeRoleId) ? "png" : "jpg";
+      const alternateExtension = extension === "jpg" ? "png" : "jpg";
+      const imageUrl = safeRoleId
+        ? "/assets/werewolf-roles/" + encodeURIComponent(`card-${safeRoleId}.${extension}`)
+        : null;
+      const imageFallbackUrl = safeRoleId
+        ? "/assets/werewolf-roles/" + encodeURIComponent(`card-${safeRoleId}.${alternateExtension}`)
+        : null;
 
       const rawEmoji = String(role.emoji || "");
-      const customEmoji = rawEmoji.match(/^<a?:[A-Za-z0-9_]+:(\d+)>$/);
+      const customEmoji = rawEmoji.match(/^<a?:[A-Za-z0-9_]+:(\\d+)>$/);
       const emojiUrl = customEmoji
         ? "https://cdn.discordapp.com/emojis/" + customEmoji[1] + ".png?size=128&quality=lossless"
         : null;
@@ -78,7 +84,7 @@ module.exports = async function handler(req, res) {
         imageUrl,
         imageFallbackUrl
       };
-    });
+    });;
 
     res.setHeader("Cache-Control", "public, s-maxage=60, stale-while-revalidate=120");
     return res.status(200).json({ roles, total: roles.length });
