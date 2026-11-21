@@ -127,40 +127,76 @@
     @media(max-width:480px){.feature-grid{grid-template-columns:1fr}.feature-card{padding:18px}.command-row{grid-template-columns:1fr;gap:7px;padding:15px 0}.command-tag{grid-column:1}.game-flow li{grid-template-columns:38px minmax(0,1fr);gap:10px}.ww-note{padding:20px}}
 
 
-    /* Role directory — responsive editorial card layout */
-    .role-status{padding:20px;border:1px solid var(--line);border-radius:10px;color:var(--gray);font-size:13px;background:#fafaf9}
-    .role-groups{display:grid;gap:48px}
-    .role-category h3{display:flex;align-items:baseline;gap:9px;font-size:19px;letter-spacing:-.55px;margin-bottom:18px}
-    .role-category-count{font-size:11px;color:#999;font-weight:500;letter-spacing:0}
-    .role-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;align-items:stretch}
-    .role-card{display:flex;flex-direction:column;min-width:0;overflow:hidden;border:1px solid #e9e9e7;border-radius:12px;background:#fff;transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}
-    .role-card:hover{transform:translateY(-3px);border-color:#d8d8d4;box-shadow:0 12px 28px rgba(0,0,0,.055)}
-    .role-art{position:relative;display:flex;align-items:center;justify-content:center;height:260px;padding:14px;background:linear-gradient(145deg,#f7f7f5,#efefed);overflow:hidden}
-    .role-art img{display:block;width:100%;height:100%;object-fit:contain}
-    .role-emoji{display:inline-block;width:1.15em;height:1.15em;object-fit:contain;vertical-align:-.2em}
-    .role-art-fallback{display:none;align-items:center;justify-content:center;width:100%;height:100%;font-size:48px;color:#aaa}
-    .role-art.is-empty img{display:none}
-    .role-art.is-empty .role-art-fallback{display:flex}
-    .role-copy{display:flex;flex:1;flex-direction:column;padding:18px}
-    .role-name{display:flex;align-items:center;gap:8px;font-size:16px;line-height:1.35;letter-spacing:-.35px;margin-bottom:6px}
-    .role-inline-emoji{width:21px;height:21px;object-fit:contain;flex:0 0 auto}
-    .role-category-label{font-size:10px;letter-spacing:1.1px;text-transform:uppercase;color:#999;font-weight:700}
-    .role-description{font-size:13px;color:#707070;line-height:1.75;margin-top:13px;overflow-wrap:anywhere}
-    .role-error{color:#8b4a3c;background:#fff8f6;border-color:#f0ddd7}
-    @media(max-width:900px){.role-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.role-art{height:230px}}
-    @media(max-width:560px){
-      .role-groups{gap:34px}
-      .role-category h3{font-size:17px;margin-bottom:13px}
-      .role-grid{grid-template-columns:1fr;gap:11px}
-      .role-card{flex-direction:row;align-items:stretch;min-height:164px}
-      .role-card:hover{transform:none;box-shadow:0 5px 16px rgba(0,0,0,.045)}
-      .role-art{width:116px;height:auto;min-height:164px;flex:0 0 116px;padding:9px;background:#f3f3f1}
-      .role-copy{justify-content:center;padding:14px;min-width:0}
-      .role-name{font-size:15px;gap:6px}
-      .role-inline-emoji{width:19px;height:19px}
-      .role-category-label{font-size:9px}
-      .role-description{font-size:12px;line-height:1.6;margin-top:9px;display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden}
+    /* Dark fantasy role archive inspired by Golden Swirl */
+    .ww-section#role-archive{margin-top:100px;padding:38px 0 0;border-top:1px solid #2b281f}
+    #role-archive .section-heading{max-width:760px;margin-bottom:26px}
+    #role-archive .section-kicker{color:#b69a58;letter-spacing:2.8px}
+    #role-archive .section-heading h2{color:#f2e8cf;font-family:Georgia,serif;font-weight:500;letter-spacing:-1.3px}
+    #role-archive .section-heading>p{color:#b5ad9e}
+    body:has(#role-archive){background:#11110f;color:#eee7d8}
+    body:has(#role-archive) nav{border-color:#302c22}
+    body:has(#role-archive) .brand,body:has(#role-archive) .back{color:#e9dfc8}
+    body:has(#role-archive) footer{border-color:#302c22;color:#8f8778}
+    body:has(#role-archive) .detail{border-color:#302c22}
+    body:has(#role-archive) .detail-label{color:#b69a58}
+    body:has(#role-archive) .detail p,body:has(#role-archive) .description{color:#aaa292}
+    body:has(#role-archive) .intro{color:#f0e5cc}
+    body:has(#role-archive) .type{border-color:#665638;color:#c8ad70}
+    body:has(#role-archive) .ww-section:not(#role-archive){border-color:#302c22}
+    body:has(#role-archive) .section-heading h2,body:has(#role-archive) .feature-card h3,body:has(#role-archive) .game-flow h3{color:#eee7d8}
+    body:has(#role-archive) .section-heading>p,body:has(#role-archive) .feature-card p,body:has(#role-archive) .game-flow p{color:#aaa292}
+    body:has(#role-archive) .feature-card{border-color:#383226;background:#171612}
+    body:has(#role-archive) .game-flow,body:has(#role-archive) .game-flow li{border-color:#383226}
+    body:has(#role-archive) .ww-note{background:#191711;border:1px solid #383226}
+    body:has(#role-archive) .cta{background:#a7833e;color:#17130b}
+    .role-status{padding:18px;border:1px solid #403724;color:#c8b98f;font-size:13px;background:#191711;border-radius:8px}
+    .role-error{color:#ffb9a9;border-color:#70473d}
+    .role-toolbar{display:flex;align-items:center;justify-content:space-between;gap:14px;margin:26px 0 20px}
+    .role-tabs{display:flex;gap:8px;overflow-x:auto;padding:3px 1px 9px;scrollbar-width:thin}
+    .role-tab{flex:0 0 auto;border:1px solid #51452d;background:#191711;color:#c9bea7;padding:9px 14px;border-radius:4px;font-size:11px;letter-spacing:.8px;text-transform:uppercase;cursor:pointer}
+    .role-tab[aria-pressed="true"]{background:linear-gradient(180deg,#b99a57,#80632d);border-color:#d0b36d;color:#17130b;font-weight:800}
+    .role-count{color:#958b77;font-size:11px;white-space:nowrap}
+    .role-showcase{display:grid;grid-template-columns:minmax(220px,.78fr) minmax(0,1.22fr);gap:22px;align-items:stretch;margin-bottom:24px;padding:16px;border:1px solid #51452d;border-radius:8px;background:radial-gradient(ellipse at 28% 35%,#302619 0%,#191711 52%,#12110e 100%);box-shadow:0 18px 48px #0005}
+    .role-showcase-art{min-height:340px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;background:radial-gradient(ellipse,#57432455,transparent 68%);border:1px solid #4b3c25;padding:14px}
+    .role-showcase-art:before{content:"";position:absolute;inset:9px;border:1px solid #a7894b55;pointer-events:none}
+    .role-showcase-art img{position:relative;display:block;width:100%;height:100%;max-height:420px;object-fit:contain;filter:drop-shadow(0 14px 20px #0009)}
+    .role-showcase-art .role-art-fallback{font-size:72px;color:#b69a58}
+    .role-showcase-copy{display:flex;flex-direction:column;justify-content:center;padding:18px 22px}
+    .role-showcase-kicker{color:#b69a58;font-size:10px;font-weight:800;letter-spacing:2.4px;text-transform:uppercase}
+    .role-showcase-copy h3{font:500 clamp(28px,4vw,44px)/1.1 Georgia,serif;letter-spacing:-.8px;color:#f4e8ca;margin:12px 0}
+    .role-showcase-copy p{font-size:14px;line-height:1.85;color:#bdb29d;white-space:pre-line}
+    .role-showcase-index{margin-top:24px;padding-top:14px;border-top:1px solid #51452d;color:#8f846e;font-size:10px;letter-spacing:1.5px;text-transform:uppercase}
+    .role-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+    .role-card{min-width:0;padding:8px;border:1px solid #403724;border-radius:5px;background:linear-gradient(160deg,#211d16,#14120f);color:#e8dfcb;text-align:left;cursor:pointer;transition:border-color .18s,transform .18s,background .18s}
+    .role-card:hover{transform:translateY(-3px);border-color:#a7894b}
+    .role-card[aria-pressed="true"]{border-color:#d2b56c;background:linear-gradient(160deg,#40321d,#1b1710);box-shadow:0 0 0 1px #d2b56c44}
+    .role-card-art{height:154px;display:flex;align-items:center;justify-content:center;background:#0e0d0b;border:1px solid #403724;padding:6px;overflow:hidden}
+    .role-card-art img{width:100%;height:100%;object-fit:contain}
+    .role-card-name{display:block;margin:9px 2px 2px;font:600 12px/1.4 Georgia,serif;color:#ead9b2}
+    .role-card-category{display:block;margin:0 2px 5px;color:#98896d;font-size:9px;letter-spacing:1px;text-transform:uppercase}
+    .role-emoji{width:1.15em;height:1.15em;object-fit:contain;vertical-align:-.2em}
+    .role-inline-emoji{width:20px;height:20px;object-fit:contain;vertical-align:middle;margin-right:7px}
+    .role-art-fallback{display:flex;align-items:center;justify-content:center;width:100%;height:100%;font-size:40px;color:#b69a58}
+    .role-card-art.is-empty img,.role-showcase-art.is-empty img{display:none}
+    .role-empty{padding:22px;color:#a99d86;border:1px dashed #51452d;text-align:center}
+    @media(max-width:900px){.role-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.role-card-art{height:138px}}
+    @media(max-width:650px){
+      .ww-section#role-archive{margin-top:72px;padding-top:27px}
+      .role-toolbar{display:block}
+      .role-count{display:block;margin-top:5px}
+      .role-showcase{grid-template-columns:1fr;gap:0;padding:10px}
+      .role-showcase-art{min-height:0;height:min(78vw,390px)}
+      .role-showcase-copy{padding:18px 10px 12px}
+      .role-showcase-copy h3{font-size:32px}
+      .role-showcase-copy p{font-size:13px;line-height:1.7}
+      .role-showcase-index{margin-top:15px}
+      .role-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+      .role-card{padding:5px}
+      .role-card-art{height:clamp(105px,32vw,155px);padding:4px}
+      .role-card-name{font-size:10px;margin-top:7px}
+      .role-card-category{font-size:8px;letter-spacing:.5px}
     }
+    @media(max-width:380px){.role-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.role-card-art{height:150px}}
     @media(prefers-reduced-motion:reduce){.role-card{transition:none}.role-card:hover{transform:none}}
 
 </style>
@@ -208,14 +244,14 @@
     </section>
 
     
-    <section class="ww-section" aria-labelledby="ww-role-heading">
+    <section class="ww-section" id="role-archive" aria-labelledby="ww-role-heading">
       <div class="section-heading">
-        <span class="section-kicker">ROLE DATABASE</span>
-        <h2 id="ww-role-heading">Kenali setiap role.</h2>
-        <p>Daftar role diambil langsung dari database Werewolf. Nama, kategori, deskripsi, dan gambar mengikuti data terbaru yang tersimpan.</p>
+        <span class="section-kicker">THE ROLE ARCHIVE</span>
+        <h2 id="ww-role-heading">Pilih takdirmu.</h2>
+        <p>Jelajahi arsip role Werewolf. Pilih kategori, temukan karakter, lalu buka detail kemampuan mereka.</p>
       </div>
-      <div id="werewolf-role-status" class="role-status" role="status" aria-live="polite">Memuat role dari database…</div>
-      <div id="werewolf-role-groups" class="role-groups"></div>
+      <div id="werewolf-role-status" class="role-status" role="status" aria-live="polite">Membuka arsip role…</div>
+      <div id="werewolf-role-groups"></div>
     </section>
 
 <section class="ww-section ww-note" aria-label="Catatan permainan">
@@ -234,72 +270,90 @@
       const escapeHTML = (value) => String(value ?? "").replace(/[&<>"']/g, (char) => ({
         "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
       })[char]);
-
-      const renderRoleEmoji = (value, imageUrl) => {
-        if (imageUrl) return `<img class="role-emoji" src="${escapeHTML(imageUrl)}" alt="" loading="lazy">`;
-        const raw = String(value || "🃏");
+      const emojiMarkup = (role) => {
+        const raw = String(role.emoji || "🃏");
+        if (role.emojiUrl) return '<img class="role-inline-emoji" src="' + escapeHTML(role.emojiUrl) + '" alt="">';
         const custom = raw.match(/^<a?:([a-zA-Z0-9_]+):(\d+)>$/);
-        if (!custom) return escapeHTML(raw);
-        const animated = raw.startsWith("<a:");
-        const extension = animated ? "gif" : "png";
-        const url = `https://cdn.discordapp.com/emojis/${custom[2]}.${extension}?size=64&quality=lossless`;
-        return `<img class="role-emoji" src="${url}" alt="${escapeHTML(custom[1])}" loading="lazy">`;
+        if (custom) {
+          const ext = raw.startsWith("<a:") ? "gif" : "png";
+          return '<img class="role-inline-emoji" src="https://cdn.discordapp.com/emojis/' + custom[2] + '.' + ext + '?size=64&quality=lossless" alt="">';
+        }
+        return escapeHTML(raw);
       };
+      let roles = [];
+      let activeCategory = "Semua";
+      let selectedRoleId = "";
+
+      const imageMarkup = (role, className) => {
+        const src = role.imageUrl || "";
+        const fallback = role.emoji || "🃏";
+        return '<div class="' + className + (src ? "" : " is-empty") + '">' +
+          (src ? '<img src="' + escapeHTML(src) + '" alt="Ilustrasi ' + escapeHTML(role.name) + '" loading="lazy">' : "") +
+          '<span class="role-art-fallback" aria-hidden="true">' + emojiMarkup(role) + '</span></div>';
+      };
+
+      function render() {
+        const categories = ["Semua", ...new Set(roles.map(role => role.category || "Lainnya"))];
+        if (!categories.includes(activeCategory)) activeCategory = "Semua";
+        const visible = activeCategory === "Semua" ? roles : roles.filter(role => (role.category || "Lainnya") === activeCategory);
+        let selected = visible.find(role => role.roleId === selectedRoleId) || visible[0];
+        if (!selected) return;
+        selectedRoleId = selected.roleId;
+
+        const index = roles.findIndex(role => role.roleId === selected.roleId) + 1;
+        const categoryTabs = categories.map(category =>
+          '<button class="role-tab" type="button" data-category="' + escapeHTML(category) + '" aria-pressed="' + (category === activeCategory) + '">' + escapeHTML(category) + '</button>'
+        ).join("");
+        const cards = visible.map(role => {
+          const chosen = role.roleId === selected.roleId;
+          return '<button class="role-card" type="button" data-role-id="' + escapeHTML(role.roleId) + '" aria-pressed="' + chosen + '">' +
+            imageMarkup(role, "role-card-art") +
+            '<span class="role-card-name">' + emojiMarkup(role) + escapeHTML(role.name) + '</span>' +
+            '<span class="role-card-category">' + escapeHTML(role.category || "Lainnya") + '</span></button>';
+        }).join("");
+
+        groups.innerHTML =
+          '<div class="role-toolbar"><div class="role-tabs" aria-label="Filter kategori role">' + categoryTabs + '</div><span class="role-count">' + visible.length + ' dari ' + roles.length + ' role</span></div>' +
+          '<div class="role-showcase">' + imageMarkup(selected, "role-showcase-art") +
+            '<div class="role-showcase-copy"><span class="role-showcase-kicker">' + escapeHTML(selected.category || "Lainnya") + ' · ROLE ' + String(index).padStart(2,"0") + '</span>' +
+            '<h3>' + emojiMarkup(selected) + escapeHTML(selected.name) + '</h3>' +
+            '<p>' + escapeHTML(selected.description || "Belum ada deskripsi untuk role ini.") + '</p>' +
+            '<span class="role-showcase-index">LUNOX WEREWOLF ARCHIVE</span></div></div>' +
+          '<div class="role-grid" aria-label="Pilih role">' + cards + '</div>';
+
+        groups.querySelectorAll(".role-card-art img,.role-showcase-art img").forEach(img => {
+          img.addEventListener("error", () => {
+            img.parentElement.classList.add("is-empty");
+            img.remove();
+          }, { once:true });
+        });
+      }
+
+      groups.addEventListener("click", event => {
+        const tab = event.target.closest("[data-category]");
+        const card = event.target.closest("[data-role-id]");
+        if (tab) {
+          activeCategory = tab.dataset.category;
+          selectedRoleId = "";
+          render();
+        } else if (card) {
+          selectedRoleId = card.dataset.roleId;
+          render();
+        }
+      });
 
       async function loadRoles() {
         try {
           const response = await fetch("../api/werewolf-roles", { headers: { Accept: "application/json" } });
           if (!response.ok) throw new Error("Role belum dapat dimuat. Coba lagi beberapa saat.");
           const payload = await response.json();
-          const roles = Array.isArray(payload.roles) ? payload.roles : [];
+          roles = Array.isArray(payload.roles) ? payload.roles : [];
           if (!roles.length) {
             status.textContent = "Belum ada role yang tersimpan di database.";
             return;
           }
-
-          const categories = new Map();
-          roles.forEach((role) => {
-            const category = role.category || "Lainnya";
-            if (!categories.has(category)) categories.set(category, []);
-            categories.get(category).push(role);
-          });
-
-          groups.innerHTML = Array.from(categories.entries()).map(([category, items]) => {
-            const cards = items.map((role) => {
-              const artUrl = role.imageUrl || role.emojiUrl || "";
-              const image = artUrl
-                ? '<img src="' + escapeHTML(artUrl) + '" data-fallback="' + escapeHTML(role.imageFallbackUrl || "") + '" alt="Ilustrasi role ' + escapeHTML(role.name) + '" loading="lazy">'
-                : "";
-              const emoji = renderRoleEmoji(role.emoji, role.emojiUrl);
-              const emojiLabel = role.emojiUrl
-                ? '<img class="role-inline-emoji" src="' + escapeHTML(role.emojiUrl) + '" alt="">'
-                : emoji;
-              return '<article class="role-card">' +
-                '<div class="role-art' + (image ? "" : " is-empty") + '">' +
-                  image + '<div class="role-art-fallback" aria-hidden="true">' + emoji + '</div>' +
-                '</div>' +
-                '<div class="role-copy">' +
-                  '<h4 class="role-name">' + emojiLabel + ' ' + escapeHTML(role.name) + '</h4>' +
-                  '<div class="role-category-label">' + escapeHTML(category) + '</div>' +
-                  '<p class="role-description">' + escapeHTML(role.description || "Belum ada deskripsi.") + '</p>' +
-                '</div></article>';
-            }).join("");
-            return '<section class="role-category"><h3>' + escapeHTML(category) +
-              '<span class="role-category-count">' + items.length + ' role</span></h3>' +
-              '<div class="role-grid">' + cards + '</div></section>';
-          }).join("");
-
-          groups.querySelectorAll(".role-art img").forEach((img) => {
-            img.addEventListener("error", () => {
-              const fallback = img.dataset.fallback;
-              if (fallback && !img.dataset.fallbackTried) {
-                img.dataset.fallbackTried = "true";
-                img.src = fallback;
-                return;
-              }
-              img.parentElement.classList.add("is-empty");
-            });
-          });
+          selectedRoleId = roles[0].roleId;
+          render();
           status.hidden = true;
         } catch (error) {
           status.classList.add("role-error");
