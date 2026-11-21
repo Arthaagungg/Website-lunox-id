@@ -1,6 +1,4 @@
 const mongoose = require("mongoose");
-const path = require("path");
-
 let cached = global.__werewolfMongo;
 if (!cached) {
   cached = global.__werewolfMongo = { connection: null, promise: null };
@@ -51,27 +49,28 @@ module.exports = async function handler(req, res) {
       }, { collection: "werewolfroles", versionKey: false })
     );
 
-    const documents = await Role.find({})
+    const documents = await Role.find({
+      roleId: { $nin: ["the_candle", "troublemaker", "cupid", "lonewolf"] },
+      category: { $in: ["Good Side", "Bad Side", "Neutral", "No Side"] }
+    })
       .select({ _id: 0, roleId: 1, name: 1, category: 1, description: 1, imageName: 1, emoji: 1 })
       .sort({ category: 1, name: 1 })
       .lean();
 
-    const imageBase = process.env.WEREWOLF_IMAGE_BASE_URL;
     const roles = documents.map((role) => {
-      const fileName = path.basename(String(role.imageName || ""));
-      const safeFileName = /^[a-zA-Z0-9._-]+$/.test(fileName) ? fileName : "";
-      let imageUrl = null;
-
-      if (safeFileName && imageBase) {
-        imageUrl = new URL(encodeURIComponent(safeFileName), imageBase.endsWith("/") ? imageBase : imageBase + "/").toString();
-      } else if (safeFileName) {
-        imageUrl = "/assets/werewolf-roles/" + encodeURIComponent(safeFileName);
-      }
+      const roleId = String(role.roleId || "");
+      const safeRoleId = /^[a-zA-Z0-9_-]+$/.test(roleId) ? roleId : "";
+      // Serve private Werewolf repository artwork through the authenticated image proxy.
+      // The proxy checks the database imageName first, then tries PNG/JPG/WebP fallbacks.
+      const imageUrl = safeRoleId
+        ? "/api/werewolf-role-image?roleId=" + encodeURIComponent(safeRoleId)
+        : null;
+      const imageFallbackUrl = null;
 
       const rawEmoji = String(role.emoji || "");
-      const customEmoji = rawEmoji.match(/^<a?:[A-Za-z0-9_]+:(\d+)>$/);
+      const customEmoji = rawEmoji.match(/^<(a?):[A-Za-z0-9_]+:(\d+)>$/);
       const emojiUrl = customEmoji
-        ? "https://cdn.discordapp.com/emojis/" + customEmoji[1] + ".png?size=128&quality=lossless"
+        ? "https://cdn.discordapp.com/emojis/" + customEmoji[2] + (customEmoji[1] ? ".gif" : ".png") + "?size=128&quality=lossless"
         : null;
 
       return {
@@ -81,7 +80,8 @@ module.exports = async function handler(req, res) {
         description: role.description,
         emoji: customEmoji ? "🃏" : (rawEmoji || "🃏"),
         emojiUrl,
-        imageUrl
+        imageUrl,
+        imageFallbackUrl
       };
     });
 
