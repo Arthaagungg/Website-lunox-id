@@ -240,7 +240,7 @@
             const cards = items.map((role) => {
               const artUrl = role.imageUrl || role.emojiUrl || "";
               const image = artUrl
-                ? '<img src="' + escapeHTML(artUrl) + '" alt="Ilustrasi role ' + escapeHTML(role.name) + '" loading="lazy">'
+                ? '<img src="' + escapeHTML(artUrl) + '" data-fallback="' + escapeHTML(role.imageFallbackUrl || "") + '" alt="Ilustrasi role ' + escapeHTML(role.name) + '" loading="lazy">'
                 : "";
               const emoji = escapeHTML(role.emoji || "🃏");
               const emojiLabel = role.emojiUrl
@@ -262,7 +262,15 @@
           }).join("");
 
           groups.querySelectorAll(".role-art img").forEach((img) => {
-            img.addEventListener("error", () => img.parentElement.classList.add("is-empty"), { once: true });
+            img.addEventListener("error", () => {
+              const fallback = img.dataset.fallback;
+              if (fallback && !img.dataset.fallbackTried) {
+                img.dataset.fallbackTried = "true";
+                img.src = fallback;
+                return;
+              }
+              img.parentElement.classList.add("is-empty");
+            });
           });
           status.hidden = true;
         } catch (error) {
