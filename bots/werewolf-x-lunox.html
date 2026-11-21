@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#ffffff">
-  <meta name="description" content="Permainan deduksi sosial langsung di Discord — bagian dari ekosistem komunitas LUNOX.ID.">
+  <meta name="theme-color" content="#11100d">
+  <meta name="description" content="Kenali Werewolf X Lunox, permainan deduksi sosial di Discord. Jelajahi role, kemampuan, dan alur permainan melalui The Role Archive.">
   <link rel="icon" type="image/svg+xml" href="../assets/lunox-mark.svg">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://website-lunox-id.vercel.app/bots/werewolf-x-lunox.html">
@@ -17,7 +17,7 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Werewolf X Lunox — Werewolf Game">
   <meta name="twitter:description" content="Informasi bot Werewolf X Lunox dari LUNOX.ID.">
-  <title>Werewolf X Lunox — LUNOX.ID</title>
+  <title>Werewolf X Lunox — The Role Archive | LUNOX.ID</title>
   <style>
     :root{--black:#171717;--gray:#777;--light:#f5f5f3;--line:#e9e9e7}
     *{box-sizing:border-box;margin:0;padding:0}
@@ -247,7 +247,129 @@
     .bot-arrow{color:#b69a58!important}
     @media(max-width:760px){.nav-links{background:#191711!important;border-color:#403724!important}}
 
-</style>
+
+    /* Werewolf dark-fantasy visual refinement */
+    :root{--gold-soft:#8f7543;--gold-line:#5a492b;--panel:#191711;--panel-raised:#211c13}
+    body{background:
+      radial-gradient(ellipse at 82% 8%,rgba(177,143,73,.10),transparent 34rem),
+      radial-gradient(ellipse at 8% 48%,rgba(177,143,73,.045),transparent 28rem),
+      #11100d!important}
+    .container{width:min(1120px,calc(100% - 64px))}
+    nav{min-height:82px!important;border-bottom:1px solid var(--line);position:relative}
+    .brand{font-size:16px;letter-spacing:.1em;color:#f0e5cc!important}
+    .brand img{width:38px;height:38px;border:1px solid #5a492b;border-radius:10px;padding:3px;background:#1b1811}
+    .back{color:#c7b78e!important;font-size:12px;letter-spacing:.03em;transition:color .2s}
+    .back:hover{color:#e4c77f!important}
+    main{padding:76px 0 105px!important}
+    .eyebrow{color:#c5a866!important;font-size:10px;letter-spacing:.23em}
+    .profile{position:relative;isolation:isolate;overflow:hidden;min-height:250px;margin:24px 0 30px!important;padding:40px 44px;gap:30px!important;border:1px solid #59482b;background:linear-gradient(115deg,rgba(39,32,20,.98),rgba(23,21,15,.97) 65%,rgba(34,27,16,.94))}
+    .profile:before{content:"";position:absolute;z-index:-1;width:360px;height:360px;right:-95px;top:-170px;border:1px solid #b99a592d;border-radius:50%;box-shadow:0 0 0 18px #b99a5908,0 0 0 38px #b99a5906,0 0 0 64px #b99a5905}
+    .profile:after{content:"狼";position:absolute;z-index:-1;right:35px;bottom:-105px;font:300 260px/1 Georgia,serif;color:#d4b66b0a;pointer-events:none}
+    .avatar{width:116px;height:116px;border-radius:22px;padding:7px;object-fit:contain;background:#17140e!important;border:1px solid #80683b!important;box-shadow:0 0 35px #b99a5919}
+    h1{font:500 clamp(42px,6vw,70px)/1.02 Georgia,"Times New Roman",serif!important;letter-spacing:-.045em!important;color:#f2e7d0!important}
+    .type{margin-top:15px;padding:6px 11px;border:1px solid #79613a!important;background:#211b10!important;color:#d7bd7d!important;font-size:9px;letter-spacing:.18em}
+    .intro{max-width:900px!important;margin:40px 0 16px!important;font:500 clamp(26px,4vw,39px)/1.22 Georgia,"Times New Roman",serif!important;letter-spacing:-.025em!important;color:#eee4d0!important}
+    .description{max-width:790px!important;color:#aaa292!important;font-size:14px!important;line-height:1.9!important}
+    .detail{margin-top:55px!important;padding:27px 29px!important;grid-template-columns:175px minmax(0,1fr)!important;gap:30px!important;border:1px solid #403724!important;background:linear-gradient(135deg,#191711,#15130f)}
+    .detail-label{color:#c5a866!important;font-size:10px;letter-spacing:.2em}
+    .detail p{color:#b7ae9d!important;font-size:13px;line-height:1.9!important}
+    .ww-section{margin-top:76px!important;padding-top:34px!important;border-top:1px solid #5a492b!important}
+    .section-kicker{color:#c5a866!important;font-size:9px;letter-spacing:.22em}
+    .section-heading h2,.ww-note h2{font:500 clamp(32px,4.6vw,48px)/1.1 Georgia,"Times New Roman",serif!important;letter-spacing:-.035em!important;color:#f0e5cc!important}
+    .section-heading>p,.ww-note>p{color:#aaa292!important;font-size:13px;line-height:1.85}
+    .feature-card{padding:21px!important;border:1px solid #403724!important;border-radius:2px!important;background:linear-gradient(145deg,#1c1912,#15130f)!important;transition:border-color .18s,transform .18s}
+    .feature-card:hover{border-color:#8c7040!important;transform:translateY(-2px)}
+    .feature-icon{font-size:20px;margin-bottom:15px;filter:saturate(.8)}
+    .feature-card h3,.game-flow h3{font:500 18px/1.3 Georgia,"Times New Roman",serif!important;color:#eee4d0!important}
+    .feature-card p,.game-flow p{color:#aaa292!important;font-size:12px;line-height:1.8}
+    .game-flow{border-color:#403724!important}
+    .game-flow li{border-color:#403724!important;padding:21px 0}
+    .flow-number{color:#b69a58!important;font-size:11px}
+    .game-flow p code{background:#282115;color:#e7d6b0;padding:3px 7px;border:1px solid #403724}
+    .ww-note{padding:28px!important;border:1px solid #403724!important;border-left:2px solid #a7833e!important;border-radius:2px!important;background:linear-gradient(135deg,#1d1911,#15130f)!important}
+    .ww-note h2{margin:0}
+    .cta{margin-top:42px!important;min-height:48px;padding:14px 22px!important;background:linear-gradient(135deg,#d8bd7b,#a7833e)!important;color:#17130b!important;border:1px solid #e0c77f;border-radius:2px!important;letter-spacing:.06em;font-size:11px!important;transition:transform .18s,background .18s}
+    .cta:hover{background:#e4ca87!important;transform:translateY(-2px)}
+    footer{margin-top:5px!important;border-color:#403724!important;color:#8f8675!important}
+
+    /* The Role Archive */
+    .ww-section#role-archive{margin-top:96px!important;padding:39px 0 0!important;border-top:1px solid #6a5430!important}
+    #role-archive .section-heading{max-width:760px;margin-bottom:27px}
+    #role-archive .section-kicker{color:#d0b16b!important;letter-spacing:.28em}
+    #role-archive .section-heading h2{font-size:clamp(39px,5vw,58px)!important}
+    #role-archive .section-heading>p{max-width:620px}
+    .role-status{padding:18px 20px!important;border:1px solid #51452d!important;border-radius:2px!important;background:#191711!important;color:#c8b98f!important;font-size:12px}
+    .role-error{color:#ffb9a9!important;border-color:#70473d!important}
+    .role-toolbar{display:flex;align-items:center;justify-content:space-between;gap:14px;margin:26px 0 19px}
+    .role-tabs{display:flex;gap:7px;overflow-x:auto;padding:3px 1px 9px;scrollbar-width:thin}
+    .role-tab{flex:0 0 auto;border:1px solid #51452d!important;background:#191711!important;color:#c9bea7!important;padding:9px 14px;border-radius:2px!important;font-size:10px;letter-spacing:.09em;text-transform:uppercase;cursor:pointer;transition:background .18s,border-color .18s}
+    .role-tab:hover{border-color:#b69a58!important;color:#f0e5cc!important}
+    .role-tab[aria-pressed="true"]{background:linear-gradient(180deg,#b99a57,#80632d)!important;border-color:#d0b36d!important;color:#17130b!important;font-weight:800}
+    .role-count{color:#958b77!important;font-size:10px;white-space:nowrap}
+    .role-showcase{display:grid;grid-template-columns:minmax(250px,.85fr) minmax(0,1.15fr);gap:22px;align-items:stretch;margin-bottom:23px;padding:15px;border:1px solid #5a492b!important;border-radius:3px!important;background:radial-gradient(ellipse at 28% 35%,#302619 0%,#191711 52%,#12110e 100%)!important;box-shadow:0 18px 48px #0005}
+    .role-showcase-art{min-height:350px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;background:radial-gradient(ellipse,#57432455,transparent 68%);border:1px solid #4b3c25!important;padding:14px}
+    .role-showcase-art:before{content:"";position:absolute;inset:9px;border:1px solid #a7894b55;pointer-events:none}
+    .role-showcase-art img{position:relative;display:block;width:100%;height:100%;max-height:430px;object-fit:contain;filter:drop-shadow(0 14px 20px #0009)}
+    .role-showcase-copy{display:flex;flex-direction:column;justify-content:center;padding:20px 24px}
+    .role-showcase-kicker{color:#c5a866!important;font-size:9px;font-weight:800;letter-spacing:.22em;text-transform:uppercase}
+    .role-showcase-copy h3{font:500 clamp(30px,4vw,46px)/1.1 Georgia,serif!important;letter-spacing:-.035em;color:#f4e8ca!important;margin:13px 0}
+    .role-showcase-copy p{font-size:13px;line-height:1.9;color:#bdb29d!important;white-space:pre-line}
+    .role-showcase-index{margin-top:24px;padding-top:14px;border-top:1px solid #51452d;color:#a08d65;font-size:9px;letter-spacing:.18em;text-transform:uppercase}
+    .role-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:11px}
+    .role-card{min-width:0;padding:8px!important;border:1px solid #403724!important;border-radius:2px!important;background:linear-gradient(160deg,#211d16,#14120f)!important;color:#e8dfcb!important;text-align:left;cursor:pointer;transition:border-color .18s,transform .18s,background .18s}
+    .role-card:hover{transform:translateY(-3px);border-color:#a7894b!important}
+    .role-card[aria-pressed="true"]{border-color:#d2b56c!important;background:linear-gradient(160deg,#40321d,#1b1710)!important;box-shadow:0 0 0 1px #d2b56c44}
+    .role-card-art{height:160px;display:flex;align-items:center;justify-content:center;background:#0e0d0b;border:1px solid #403724;padding:6px;overflow:hidden}
+    .role-card-art img{width:100%;height:100%;object-fit:contain}
+    .role-card-name{display:block;margin:10px 2px 3px;font:600 12px/1.4 Georgia,serif;color:#ead9b2!important}
+    .role-card-category{display:block;margin:0 2px 5px;color:#a08d65!important;font-size:8px;letter-spacing:.1em;text-transform:uppercase}
+    .role-inline-emoji{width:20px;height:20px;object-fit:contain;vertical-align:middle;margin-right:7px}
+    .role-art-fallback{display:flex;align-items:center;justify-content:center;width:100%;height:100%;font-size:40px;color:#b69a58}
+    .role-card-art:not(.is-empty) .role-art-fallback,.role-showcase-art:not(.is-empty) .role-art-fallback{display:none}
+    .role-card-art.is-empty img,.role-showcase-art.is-empty img{display:none}
+    .role-empty{padding:22px;color:#a99d86;border:1px dashed #51452d;text-align:center}
+    .role-card:focus-visible,.role-tab:focus-visible{outline:2px solid #d2b56c!important;outline-offset:3px}
+    @media(max-width:900px){.role-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.role-card-art{height:145px}}
+    @media(max-width:760px){
+      .container{width:calc(100% - 40px)!important}
+      nav{min-height:70px!important}
+      main{padding:54px 0 76px!important}
+      .profile{min-height:0;padding:25px 22px;margin:20px 0 24px!important;gap:17px!important}
+      .avatar{width:76px;height:76px;border-radius:16px;padding:5px}
+      h1{font-size:clamp(34px,9vw,50px)!important;letter-spacing:-.04em!important}
+      .type{margin-top:9px;font-size:8px;padding:5px 8px}
+      .intro{margin-top:30px!important;font-size:28px!important}
+      .description{font-size:13px!important}
+      .detail{grid-template-columns:1fr!important;gap:9px!important;margin-top:36px!important;padding:21px!important}
+      .detail p{font-size:12px!important}
+      .ww-section{margin-top:57px!important;padding-top:28px!important}
+      .section-heading h2,.ww-note h2{font-size:36px!important}
+      .feature-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+      .feature-card{padding:16px!important}
+      .feature-card h3{font-size:16px!important}
+      .ww-section#role-archive{margin-top:70px!important;padding-top:28px!important}
+      .role-toolbar{display:block;margin-top:20px}
+      .role-count{display:block;margin-top:4px}
+      .role-showcase{grid-template-columns:1fr;gap:0;padding:9px;margin-bottom:16px}
+      .role-showcase-art{min-height:0;height:min(78vw,390px)}
+      .role-showcase-copy{padding:19px 10px 12px}
+      .role-showcase-copy h3{font-size:34px!important}
+      .role-showcase-copy p{font-size:12px;line-height:1.8}
+      .role-showcase-index{margin-top:15px}
+      .role-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+      .role-card{padding:5px!important}
+      .role-card-art{height:clamp(105px,32vw,155px);padding:4px}
+      .role-card-name{font-size:10px;margin-top:7px}
+      .role-card-category{font-size:7px;letter-spacing:.04em}
+      .game-flow li{grid-template-columns:36px minmax(0,1fr);gap:10px}
+      .ww-note{grid-template-columns:1fr;gap:12px;padding:20px!important}
+      .cta{width:100%;margin-top:32px!important}
+    }
+    @media(max-width:420px){.feature-grid{grid-template-columns:1fr}.feature-card{padding:18px!important}}
+    @media(max-width:380px){.container{width:calc(100% - 32px)!important}.profile{padding:20px 16px}.avatar{width:64px;height:64px}.role-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.role-card-art{height:150px}}
+    @media(prefers-reduced-motion:reduce){.feature-card,.role-card,.role-tab,.cta{transition:none!important}.feature-card:hover,.role-card:hover,.cta:hover{transform:none}}
+
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Lewati ke konten</a>
@@ -261,8 +383,8 @@
       <img class="avatar" src="../assets/bot-werewolf.svg" alt="Avatar Werewolf X Lunox">
       <div><h1>Werewolf X Lunox</h1><span class="type">Werewolf Game</span></div>
     </div>
-    <p class="intro">Permainan deduksi sosial langsung di Discord.</p>
-    <p class="description">Werewolf X Lunox adalah permainan deduksi sosial di Discord. Setiap pemain mendapatkan peran dengan tujuan dan kemampuan berbeda. Amati perilaku pemain lain, kumpulkan petunjuk, bangun kepercayaan, dan ungkap siapa yang menyembunyikan identitasnya sebelum terlambat.</p>
+    <p class="intro">Setiap identitas menyimpan rahasia. Setiap pilihan menentukan akhir.</p>
+    <p class="description">Werewolf X Lunox menghadirkan permainan deduksi sosial langsung di server Discord. Baca situasi, diskusikan kecurigaan, susun strategi, dan cari tahu siapa yang bisa dipercaya. Di balik setiap role, ada tujuan dan rahasia yang dapat mengubah jalannya permainan.</p>
     <div class="detail">
       <div class="detail-label">TENTANG BOT</div>
       <p>Werewolf X Lunox dirancang untuk menghadirkan permainan Werewolf yang interaktif bersama teman-teman di Discord. Bot membantu mengelola jalannya pertandingan, mulai dari bergabung ke lobby hingga pergantian fase permainan, sehingga pemain dapat berfokus pada strategi dan interaksi.</p>
