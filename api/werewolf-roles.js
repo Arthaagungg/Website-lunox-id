@@ -56,17 +56,11 @@ module.exports = async function handler(req, res) {
       .sort({ category: 1, name: 1 })
       .lean();
 
-    const imageBase = process.env.WEREWOLF_IMAGE_BASE_URL;
     const roles = documents.map((role) => {
-      const fileName = path.basename(String(role.imageName || ""));
-      const safeFileName = /^[a-zA-Z0-9._-]+$/.test(fileName) ? fileName : "";
-      let imageUrl = null;
-
-      if (safeFileName && imageBase) {
-        imageUrl = new URL(encodeURIComponent(safeFileName), imageBase.endsWith("/") ? imageBase : imageBase + "/").toString();
-      } else if (safeFileName) {
-        imageUrl = "/assets/werewolf-roles/" + encodeURIComponent(safeFileName);
-      }
+      const safeRoleId = /^[a-zA-Z0-9_-]+$/.test(String(role.roleId || "")) ? role.roleId : "";
+      const imageRoot = "https://raw.githubusercontent.com/Arthaagungg/Werewolf/feature/centralized-announcements/src/assets/roles/";
+      const imageUrl = safeRoleId ? imageRoot + encodeURIComponent("card-" + safeRoleId + ".jpg") : null;
+      const imageFallbackUrl = safeRoleId ? imageRoot + encodeURIComponent("card-" + safeRoleId + ".png") : null;
 
       const rawEmoji = String(role.emoji || "");
       const customEmoji = rawEmoji.match(/^<a?:[A-Za-z0-9_]+:(\d+)>$/);
@@ -81,7 +75,8 @@ module.exports = async function handler(req, res) {
         description: role.description,
         emoji: customEmoji ? "🃏" : (rawEmoji || "🃏"),
         emojiUrl,
-        imageUrl
+        imageUrl,
+        imageFallbackUrl
       };
     });
 
