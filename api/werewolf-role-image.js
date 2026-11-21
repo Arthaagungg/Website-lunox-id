@@ -60,7 +60,7 @@ module.exports = async function handler(req, res) {
       "card-" + roleId + ".webp"
     ].filter((name, index, list) =>
       typeof name === "string" &&
-      /^card-[a-zA-Z0-9_-]+\\.(png|jpe?g|webp|gif)$/i.test(name) &&
+      /^card-[a-zA-Z0-9_-]+\.(png|jpe?g|webp|gif)$/i.test(name) &&
       list.indexOf(name) === index
     );
 
