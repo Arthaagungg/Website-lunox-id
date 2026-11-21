@@ -1,7 +1,66 @@
 {
-  "updatedAt": "2026-11-21T18:44:13.659Z",
+  "updatedAt": "2026-11-21T18:52:35.988Z",
   "source": "Lunox-2026",
   "commands": [
+    {
+      "name": "customrole",
+      "description": "Kelola custom role booster kamu",
+      "usage": "customrole <subcommand>",
+      "aliases": [
+        "cr"
+      ],
+      "category": "booster",
+      "categoryLabel": "Booster & Support",
+      "access": "Booster / Support",
+      "subcommands": [
+        {
+          "name": "claim",
+          "description": "Ambil custom role kamu",
+          "usage": " "
+        },
+        {
+          "name": "name",
+          "description": "Ganti nama custom role",
+          "usage": "<nama_baru>"
+        },
+        {
+          "name": "color",
+          "description": "Ubah warna custom role",
+          "usage": "<#hex>"
+        },
+        {
+          "name": "icon",
+          "description": "Ganti icon custom role",
+          "usage": "<link | upload>"
+        },
+        {
+          "name": "info",
+          "description": "Lihat info custom role kamu",
+          "usage": " "
+        },
+        {
+          "name": "gift",
+          "description": "Bagikan custom role kamu ke user lain",
+          "usage": "<@user>"
+        },
+        {
+          "name": "delete",
+          "description": "Hapus custom role kamu",
+          "usage": " "
+        },
+        {
+          "name": "remove",
+          "description": "Cabut custom role dari user lain",
+          "usage": "<@user>"
+        },
+        {
+          "name": "removebg",
+          "description": "Hapus background icon custom role",
+          "usage": "<upload>"
+        }
+      ],
+      "examples": []
+    },
     {
       "name": "afk",
       "description": "Set your AFK status.",
@@ -115,65 +174,6 @@
       "categoryLabel": "Staff",
       "access": "Khusus staff",
       "subcommands": [],
-      "examples": []
-    },
-    {
-      "name": "customrole",
-      "description": "Kelola custom role booster kamu",
-      "usage": "customrole <subcommand>",
-      "aliases": [
-        "cr"
-      ],
-      "category": "booster",
-      "categoryLabel": "Booster & Support",
-      "access": "Booster / Support",
-      "subcommands": [
-        {
-          "name": "claim",
-          "description": "Ambil custom role kamu",
-          "usage": ""
-        },
-        {
-          "name": "name",
-          "description": "Ganti nama custom role",
-          "usage": "<nama_baru>"
-        },
-        {
-          "name": "color",
-          "description": "Ubah warna custom role",
-          "usage": "<#hex>"
-        },
-        {
-          "name": "icon",
-          "description": "Ganti icon custom role",
-          "usage": "<link | upload>"
-        },
-        {
-          "name": "info",
-          "description": "Lihat info custom role kamu",
-          "usage": ""
-        },
-        {
-          "name": "gift",
-          "description": "Bagikan custom role kamu ke user lain",
-          "usage": "<@user>"
-        },
-        {
-          "name": "delete",
-          "description": "Hapus custom role kamu",
-          "usage": ""
-        },
-        {
-          "name": "remove",
-          "description": "Cabut custom role dari user lain",
-          "usage": "<@user>"
-        },
-        {
-          "name": "removebg",
-          "description": "Hapus background icon custom role",
-          "usage": "<upload>"
-        }
-      ],
       "examples": []
     }
   ]
