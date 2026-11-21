@@ -83,7 +83,8 @@ module.exports = async function handler(req, res) {
         : /\.jpe?g$/i.test(filename) ? "image/jpeg"
         : /\.webp$/i.test(filename) ? "image/webp"
         : /\.gif$/i.test(filename) ? "image/gif" : null;
-      if (!extensionType || (responseType && !/^image\/(png|jpeg|webp|gif)$/i.test(responseType) && responseType !== "application/octet-stream")) {
+      if (!extensionType || (responseType && !/^image\/(png|jpeg|webp|gif)$/i.test(responseType) &&
+          !["application/octet-stream", "application/vnd.github.raw"].includes(responseType))) {
         throw new Error("Unsupported role image content type: " + responseType);
       }
 
