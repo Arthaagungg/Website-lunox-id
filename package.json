@@ -1,0 +1,9 @@
+{
+  "name": "website-lunox-id",
+  "version": "1.0.0",
+  "private": true,
+  "description": "LUNOX.ID community website",
+  "dependencies": {
+    "mongoose": "^8.17.1"
+  }
+}
