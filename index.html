@@ -98,7 +98,7 @@
       align-items: center; gap: 25px; padding: 34px 0;
       border-bottom: 1px solid var(--line); transition: padding .2s, background .2s;
     }
-    .bot-card:hover { padding-left: 14px; padding-right: 14px; background: #fcfcfb; }
+    .bot-card-link { display: grid; color: inherit; text-decoration: none; border-bottom: 1px solid var(--line); }\n    .bot-card-link .bot-card { border-bottom: 0; }\n    .bot-card-link:hover { background: #fcfcfb; }\n    .bot-card-link:focus-visible { outline: 2px solid var(--black); outline-offset: 5px; }\n    .bot-card:hover { padding-left: 14px; padding-right: 14px; background: #fcfcfb; }
     .bot-icon {
       width: 66px; height: 66px; display: block; object-fit: cover;
       background: var(--light); border: 1px solid var(--line);
@@ -232,7 +232,7 @@
           </div>
         </div>
         <div class="bot-list">
-          <article class="bot-card">
+          <a class="bot-card-link" href="bots/lunox-id.html" aria-label="Lihat detail LUNOX.ID">\n          <article class="bot-card">
             <img class="bot-icon" src="assets/bot-lunox.svg" alt="Avatar bot LUNOX.ID">
             <div>
               <div class="bot-index">BOT 01</div>
@@ -241,8 +241,8 @@
             </div>
             <p class="bot-description">Bot utilitas yang hadir untuk mendukung kebutuhan dan aktivitas server Discord LUNOX.ID.</p>
             <div class="bot-arrow" aria-hidden="true">↗</div>
-          </article>
-          <article class="bot-card">
+          </article>\n          </a>
+          <a class="bot-card-link" href="bots/lv.html" aria-label="Lihat detail LV">\n          <article class="bot-card">
             <img class="bot-icon" src="assets/bot-lv.svg" alt="Avatar bot LV">
             <div>
               <div class="bot-index">BOT 02</div>
@@ -251,8 +251,8 @@
             </div>
             <p class="bot-description">Bot ruang suara sementara. Buat tempat untuk berkumpul dan berbicara bersama tanpa memenuhi daftar voice channel permanen.</p>
             <div class="bot-arrow" aria-hidden="true">↗</div>
-          </article>
-          <article class="bot-card">
+          </article>\n          </a>
+          <a class="bot-card-link" href="bots/werewolf-x-lunox.html" aria-label="Lihat detail Werewolf X Lunox">\n          <article class="bot-card">
             <img class="bot-icon" src="assets/bot-werewolf.svg" alt="Avatar bot Werewolf X Lunox">
             <div>
               <div class="bot-index">BOT 03</div>
@@ -261,7 +261,7 @@
             </div>
             <p class="bot-description">Bot permainan Werewolf untuk mengajak anggota berkumpul, menyusun strategi, dan mencari tahu siapa yang bisa dipercaya.</p>
             <div class="bot-arrow" aria-hidden="true">↗</div>
-          </article>
+          </article>\n          </a>
         </div>
       </div>
     </section>
