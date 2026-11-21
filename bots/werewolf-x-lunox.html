@@ -221,7 +221,7 @@
 
       const renderRoleEmoji = (value) => {
         const raw = String(value || "🃏");
-        const custom = raw.match(/^<a?:([a-zA-Z0-9_]+):(\\d+)>$/);
+        const custom = raw.match(/^<a?:([a-zA-Z0-9_]+):(\d+)>$/);
         if (!custom) return escapeHTML(raw);
         const animated = raw.startsWith("<a:");
         const extension = animated ? "gif" : "png";
