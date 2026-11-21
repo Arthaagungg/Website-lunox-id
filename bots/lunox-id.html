@@ -134,14 +134,68 @@
     footer{padding:30px 0;border-top:1px solid var(--line);color:#999;font-size:12px}
     @media(max-width:600px){nav{height:70px}.profile{gap:18px}.avatar{width:78px;height:78px;border-radius:17px}h1{letter-spacing:-2.5px}.detail{grid-template-columns:1fr;gap:12px}main{padding:75px 0 90px}}
     @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
-  </style>
+  
+    /* Shared responsive polish */
+    html{scroll-behavior:smooth;scroll-padding-top:24px}
+    body{overflow-x:hidden;background:#fff}
+    ::selection{background:var(--black);color:#fff}
+    img{max-width:100%}
+    button,input{font:inherit}
+    a,button{-webkit-tap-highlight-color:transparent}
+    :focus-visible{outline:2px solid var(--black);outline-offset:4px}
+    .skip-link{position:absolute;top:10px;left:10px;z-index:20;padding:10px 14px;background:var(--black);color:#fff;transform:translateY(-160%)}
+    .skip-link:focus{transform:translateY(0)}
+
+    /* Consistent bot profile system */
+    .container{width:min(1080px,88%)}
+    nav{min-height:76px;height:auto;gap:18px}
+    .brand{flex-shrink:0}
+    .back{display:inline-flex;align-items:center;gap:7px;min-height:42px;padding:8px 0;text-align:right}
+    main{padding:88px 0 104px}
+    .eyebrow{letter-spacing:2.2px}
+    .profile{gap:24px;margin:28px 0 30px}
+    .avatar{width:104px;height:104px;border-radius:22px;flex:0 0 auto}
+    h1{font-size:clamp(40px,6.5vw,72px);letter-spacing:-3.5px;overflow-wrap:anywhere}
+    .intro{max-width:760px;margin:34px 0 18px;font-size:clamp(20px,2.6vw,27px)}
+    .description{max-width:690px;font-size:15px;line-height:1.8}
+    .detail{grid-template-columns:minmax(150px,190px) minmax(0,1fr);gap:36px;margin-top:64px;padding-top:25px}
+    .detail p{max-width:680px;line-height:1.8}
+    .cta{min-height:48px;display:inline-flex;align-items:center;justify-content:center;margin-top:42px;padding:13px 21px;transition:background .18s,transform .18s}
+    .cta:hover{background:#3a3a3a;transform:translateY(-2px)}
+    footer{margin-top:12px;padding:28px 0;border-top:1px solid var(--line)}
+    @media(max-width:760px){
+      .container{width:min(100% - 40px,620px)}
+      nav{min-height:68px}
+      main{padding:68px 0 80px}
+      .profile{gap:17px;margin:24px 0 27px}
+      .avatar{width:76px;height:76px;border-radius:17px}
+      h1{font-size:clamp(35px,9vw,54px);letter-spacing:-2.4px}
+      .type{margin-top:8px;font-size:9px;letter-spacing:.7px}
+      .intro{margin-top:29px;font-size:21px}
+      .description{font-size:14px}
+      .detail{grid-template-columns:1fr;gap:9px;margin-top:43px;padding-top:20px}
+      .detail p{font-size:13px}
+      .cta{width:100%;margin-top:32px}
+    }
+    @media(max-width:390px){
+      .container{width:calc(100% - 32px)}
+      .brand{font-size:18px;gap:8px}
+      .brand img{width:31px;height:31px}
+      .back{font-size:11px}
+      .profile{gap:13px}
+      .avatar{width:66px;height:66px;border-radius:15px}
+      h1{font-size:34px;letter-spacing:-2px}
+    }
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Lewati ke konten</a>
   <nav class="container" aria-label="Navigasi utama">
     <a class="brand" href="../index.html"><img src="../assets/lunox-mark.svg" alt="">LUNOX.ID</a>
     <a class="back" href="../index.html#bots">← Kembali ke semua bot</a>
   </nav>
-  <main class="container">
+  <main class="container" id="main-content">
     <div class="eyebrow">BOT 01 / BOT PROFILE</div>
     <div class="profile">
       <img class="avatar" src="../assets/bot-lunox.svg" alt="Avatar LUNOX.ID">
